@@ -35,6 +35,35 @@ export default defineConfig({
 
 				},
 				{					
+					label: 'HTML Dasar',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'Intro', link: '/html/intro/' },
+						{ label: 'Tag,Elemen,Atribut', link: '/html/pre/' },
+						{ label: 'Paragraf', link: '/html/paragraf/' },
+					],
+
+				},
+				{					
+					label: 'Css Dasar',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'Intro', link: '/css/intro/' },
+						{ label: 'Pre Requist', link: '/css/pre/' },
+					],
+
+				},
+				{					
+					label: 'Bootstrap',
+					items: [
+						// Each item here is one entry in the navigation menu.
+						{ label: 'Bootstrap', link: '/web/bootstrap/' },
+						{ label: 'Pre Requist', link: '/web/intro/' },
+					],
+
+				},
+
+				{					
 					label: 'Astro with Tailwind.css',
 					items: [
 						// Each item here is one entry in the navigation menu.

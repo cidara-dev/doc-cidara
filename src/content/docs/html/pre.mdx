@@ -1,0 +1,305 @@
+---
+title: Tag, Elemen, Atribut
+description: linux dasar
+---
+
+import rockets from '/src/assets/images/element-html.png';
+import rocket from '/src/assets/images/element.png';
+import rock from '/src/assets/images/maxresdefault.jpg';
+import rocker from '/src/assets/images/atribut.png';
+
+# TAG
+
+#### Apa itu Tag?
+
+Tag adalah sebuah penanda awalan dan akhiran dari sebuah elemen di HTML. Tag dibuat dengan kurung siku (< >), lalu di dalamnya berisi nama tag dan kadang juga ditambahkan dengan atribut.
+
+Contoh: 
+```<p>, <a>, <body>, <head>,```
+ dan sebagainya.
+
+:::note
+```
+Tag selalu ditulis berpasangan. 
+Ada tag pembuka dan ada tag penutupnya. 
+Namun, ada juga beberapa tag yang tidak memiliki pasangan penutup. 
+Tag penutup ditulis dengan menambahkan garis miring (/) di depan nama tag.
+```
+:::
+
+beberapa contoh ***Tag***
+
+```
+
+Tag	Fungsi
+<html>	                untuk memulai dokumen HTML
+<head>	                untuk membuat bagian head
+<body>	                untuk membuat bagian body
+<h1> sampai <h6>    	  untuk membuat heading pada artikel
+<p>	                    untuk membuat paragraf
+<!-- -->	              untuk membuat komentar
+```
+
+#### Cara Menulis Tag HTML yang Benar!
+
+Beberapa orang kadang sering salah dalam menuliskan tag. Ada yang lupa menutup, ada yang salah mengetik namanya, dan semacamnya.
+
+Berikut ini beberapa saran yang perlu diikuti agar bisa menulis tag dengan benar:
+
+###### Tag-tag wajib
+Ada beberapa tag yang wajib ada di HTML. Tag ini harus kamu tulis.. kalau tidak, bisa jadi kode HTML-mu akan error menurut validator W3C.
+
+Berikut ini daftar tag yang wajib ada di HTML:
+
+```
+<!DOCTYPE html> —       untuk deklarasi type dokumen;
+<html> —                tag utama dalam HTML;
+<head> —                untuk bagian kepala dari dokumen;
+<title> —               untuk judul web;
+<body> —                untuk bagian body dari dokumen.
+```
+###### Gunakan Huruf Kecil
+Hindari menggunakan huruf besar dalam menuliskan naama tag dan sebaiknya gunakan huruf kecil saja.
+
+Huruf kecil lebih gampang diketik dan juga akan membuat kode HTML terlihat lebih bersih dan rapi.
+
+Contoh penulisan tag yang benar:
+
+```
+<!DOCTYPE html>
+<body>
+<p>Belajar tentang tag di HTML</p>
+</body> 
+```
+
+Contoh penulisan tag yang salah:
+
+```
+<BODY>
+<P>Belajar tentang tag di HTML</P>
+</BODY> 
+```
+Tapi khusus untuk tag **!DOCTYPE html** ia ditulis dengan huruf besar. Sebenarnya bisa juga dengan huruf kecil dan akan valid menurut validator W3C.
+
+Tapi untuk dokumen XHTML, menggunakan DOCTYPE dengan huruf kecil akan mengakibatkan error.
+
+#### Pastikan Menutup Tag dengan Benar
+Tag HTML nantinya akan ditulis bertumpuk-tumpuk. Artinya, di dalam tag ada tag lagi. Kadang kita sering salah dalam menutup tag yang bertumpuk ini. Akibatnya, kode HTML kita tidak valid.
+
+Contoh:
+
+```
+<i><b><u>memasak</u></b></i>
+```
+
+# ELEMEN
+
+#### Apa itu Elemen?
+
+Elemen dalam HTML adalah sebuah komponen yang menyusun dokumen HTML. Elemen kadang juga disebut sebagai node, karena ia merupakan salah satu jenis node yang menyusun dokumen HTML dalam diagram 
+
+:::note
+<img src={rock.src} alt="A rocketship in space." />
+:::
+
+Pada diagram tersebut, terdapat tiga macam node.. yakni: **Node elemen, Node atribut, dan Node teks.**
+
+Elemen dibentuk dari **tag pembuka, isi tag, dan tag penutup**
+Kadang juga ditambahkan beberapa atribut.
+
+:::note
+<img src={rocket.src} alt="A rocketship in space." />
+:::
+
+Pada contoh di atas, terdapat satu elemen ```<p>``` dengan atribut align="center" dan memiliki isi berupa teks, yakni Hello World!.
+
+Elemen tidak selalu berisi teks, kadan ia juga akan berisi elemen lain. Ini biasanya kita sebut dengan nested element atau elemen di dalam elemen.
+
+Bila digambarkan dalam bentuk kotak persegi, maka akan terlihat seperti ini:
+
+:::note
+<img src={rockets.src} alt="A rocketship in space." />
+:::
+
+:::note
+Elemen HTML ada banyak jenisnya.
+ Ada elemen khusus untuk teks, ada elemen untuk multimedia, script, tabel, metadata, dll
+:::
+
+# ATRIBUT 
+
+#### Apa itu Atribut?
+Atribut adalah kata kunci khusus yang berada di dalam tag pembuka.
+ Atribut juga disebut sebagai modifier yang akan menentukan perliaku dari elemen.
+
+:::note
+ <img src={rocker.src} alt="A rocketship in space." />
+:::
+
+ Atribut dapat ditambahkan pada elemen manapun. Ada juga elemen yang mewajibkan menggunakan atribut seperti elemen ```<a>, <img>, <video>,``` dll.
+
+ Contoh:
+
+```
+<a href="https://cidara.my.id">cidara</a>
+```
+Tag ```<a> ``` adalah tag untuk membuat link. Tag ini mewajibkan menambahkan atribut href untuk menyatakan halaman tujuan dari link.
+
+Jumlah atribut pada elemen bisa lebih dari satu.
+
+Contoh:
+
+```
+<img src="gambar.jpg" width="100" height="100" />
+```
+Atribut src adalah atribut khusus untuk tag ```<img>``` yang fungsinya untuk menentukan gambar yang akan ditampilkan.
+ Lalu atribut width dan height adalah atribut yang mengatur ukurannya.
+
+#### Jenis-jenis Atribut HTML
+Tiap-tiap elemen kadang memiliki atribut khusus yang hanya bisa digunakan pada elemen tersebut. Ada juga atribut yang bersifat global dan bisa ditambahkan ke semua elemen.
+
+Berikut ini jenis-jenis atribut yang harus diketahui:
+
+- #### Atribut Global
+Atribut Global adalah atribut yang bisa ditambahkan pada semua elemen HTML.
+
+Berikut ini daftar atribut global dan fungsinya:
+
+```
+
+Nama Atribut    	    Deskripsi atau fungsi
+
+accesskey	            Menentukan tombol shortcut untuk mengaktifkan atau fokus pada elemen
+class	                Menentukan class CSS yang akan digunakan
+contenteditable	      Menentukan isi elemen bisa diedit atau tidak
+data-*	              Digunakan untuk menyimpan data
+dir	                  Menentukan arah teks dari elemen (kiri ke kanan atau sebaliknya)
+draggable	            Menentukan apakah elemen bisa di drag atau tidak
+hidden	              untuk menyembunyikan elemen
+id	                  Menentukan id unik untuk elemen
+lang	                Menentukan bahasa yang digunakan untuk isi elemen
+spellcheck	          Menentukan apakah isi elemen harus dilakukan pengejaan grammer atau tudak
+style	                Menentukan inline CSS untuk elemen
+tabindex	            Menentukan urutan atau indeks tab dari elemen (saat tombol tab ditekan)
+title	                Menentukan informasi tambahan tentang elemen
+translate	            Menentukan apakah konten dari elemen bisa diterjemahkan atau tidak
+```
+
+- #### Atribut Event
+Atribut event adalah atribut yang digunakan untuk menentukan aksi yang akan dilakukan saat terjadi sesuatu pada elemen. Atribut ini nanti akan banyak digunakan pada pemrograman Javascript.
+
+Berikut ini daftar atribut event saat terjadi sesuatu pada Jendela browser:
+
+```
+Nama atribut	    Nilai	            Fungsi: Menjalankan script
+
+onafterprint	    kode javascript	    setelah dokumen dicetak
+onbeforeprint	    kode javascript	    sebelum dokumen dicetak
+onbeforeunload	  kode javascript	    sebelum saat dokumen tidak ter-load
+onerror	          kode javascript	    saat terjadi error
+onhashchange	    kode javascript	    saat terjadi perubahan pada bagian anchor di URL
+onload	          kode javascript	    setelah loading selesai
+onmessage	        kode javascript	    saat ada pesan
+onoffline	        kode javascript	    saat tiba-tiba offline
+ononline	        kode javascript	    saat tiba-tiba online
+onpagehide	      kode javascript	    saat user tidak sedang membuka halaman web
+onpageshow	      kode javascript	    saat user membuka kembali halaman web
+onpopstate	      kode javascript	    saat history browser berubah
+onresize	        kode javascript	    saat ukuran jendela browser berubah
+onstorage	        kode javascript	    saat area penyimpanan (Web Storage) di-update
+onunload	        kode javascript	    saat web browser ditutup
+
+```
+
+:::note
+Selain atribut tersebut, masih banyak lagi atribut event yang lainnya.
+Semuanya bisa kamu lihat di: [HTML Event Attributes](https://www.w3schools.com/tags/ref_eventattributes.asp)
+:::
+
+#### Cara Menulis Atribut yang Benar!
+Penulisan atribut sebenarnya gampang.. 
+kita hanya perlu menambahkannya pada tag pembuka dengan format seperti ini:
+
+bana-atribut="nilai"
+
+Namun, ada beberapa hal yang perlu diperhatikan agar penulisannya benar dan valid:
+
+- ##### Gunakan Huruf Kecil
+
+Menulis atribut dengan huruf besar sah-sah saja, dan bahkan valid menurut validator W3C.
+
+Tapi saya sarankan menggunakan huruf kecil saja. Karena lebih umum digunakan dan juga mudah terbaca.
+
+Contoh: (bagus)
+
+```
+<p align="center">Belajar HTML di Petani Kode</p>
+```
+Contoh: (kurang bagus)
+
+```
+<p ALIGN="CENTER">Belajar HTML di Petani Kode</p>
+```
+- ##### Gunakan Tanda Petik
+
+Gunakan tanda petik untuk mengisi nilai atribut yang mengandung teks.
+
+###### Mengapa?
+
+Karena jika terdapat lebih dari satu kata, ia akan menciptakan spasi dan akan dianggap sebagai atribut baru.
+
+Contoh: (bagus)
+
+```
+<h1 title="tutorial HTML untuk pemula">Belajar HTML</h1>
+```
+Contoh: (buruk)
+
+```
+<h1 title=tutorial HTML untuk pemula>Belajar HTML</h1>
+```
+
+Tanda petik yang digunakan, boleh petik ganda ```(")``` dan juga petik tunggal ```(')```.
+
+Nah untuk nilai angka, boleh pakai tanda petik dan juga boleh tidak.
+
+Contoh:
+
+```
+<img src="gambar.jpg" width=120 height=120 />
+```
+
+Lalu, untuk atribut yang bernilai boolean ```(true dan false)``` nilainya boleh ditulis dan boleh tidak.
+
+Contoh:
+
+```
+<input type="text" required="true" />
+<input type="text" required />
+```
+
+- ##### Penggunaan Spasi
+
+Jika ada atribut yang memiliki lebih dari satu nama, maka ia ditulis dengan tanda min ```(-)``` bukan spasi.
+
+Contoh:
+
+```
+<img data-src="gambar.jpg" />
+```
+
+Lalu, spasi juga digunakan untuk memisahkan dua atau lebih atribut.
+
+Contoh:
+
+```
+<img class="lazyload" data-src="gambar.jpg" src="placeholder.jpg" />
+```
+
+Bisa juga ditulis seperti ini:
+
+```
+<img class="lazyload" 
+    data-src="gambar.jpg" 
+    src="placeholder.jpg" />
+```
