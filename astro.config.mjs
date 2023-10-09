@@ -6,9 +6,9 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Self Documentation',
+			title: 'Multi Doc',
 			social: {
-				github: 'https://github.com/sdldev/documentation',
+				github: 'https://github.com/cidara-dev/doc-cidara',
 			},
 			sidebar: [
 				{					
