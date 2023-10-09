@@ -25,9 +25,10 @@ jalankan terminal dan ketik perintah
 <Tabs>
 <TabItem label="npm">
 
-````sh
+```sh
 # create a new project with npm
 npm create astro@latest
+```
 
 </TabItem>
 <TabItem label="pnpm">
@@ -35,7 +36,7 @@ npm create astro@latest
 ```sh
 # create a new project with pnpm
 pnpm create astro@latest
-````
+```
 
 </TabItem>
 <TabItem label="Yarn">
@@ -53,7 +54,9 @@ Jika Anda belum memiliki direktori kosong untuk proyek baru Anda, Astro akan mem
 
 Lalu arahkan ke directori projek yg baru dibuat,ketikkan perintah di terminal:
 
+```
     npm install
+```
 
 maka astro akan secara otomatis memasang Dependencies yang dibutuhkan.
 
@@ -62,11 +65,15 @@ maka astro akan secara otomatis memasang Dependencies yang dibutuhkan.
 Astro hadir dengan server pengembangan bawaan yang memiliki semua yang Anda butuhkan untuk pengembangan proyek. Perintah _astro dev_ akan memulai server pengembangan lokal sehingga Anda dapat melihat situs web baru Anda berjalan untuk pertama kalinya.
 
 Setiap template pemula dilengkapi dengan skrip pra-konfigurasi yang akan menjalankan _astro dev_ untuk Anda. Gunakan manajer paket favorit Anda untuk menjalankan perintah ini dan memulai server pengembangan Astro.
-
+```sh
     npm run dev
+```
 
-Jika semuanya berjalan lancar, Astro sekarang akan melayani proyek Anda di http://localhost:4321/
+Jika semuanya berjalan lancar, Astro sekarang akan melayani proyek Anda di 
 
+```
+http://localhost:4321/
+```
 Astro akan mendengarkan perubahan file langsung di direktori _src/_ Anda, jadi Anda tidak perlu me-restart server saat Anda membuat perubahan selama pengembangan.
 
 Jika Anda tidak dapat membuka proyek Anda di browser, kembali ke terminal tempat Anda menjalankan perintah dev dan lihat apakah terjadi kesalahan, atau apakah proyek Anda disajikan di URL yang berbeda dari yang ditautkan ke di atas.
@@ -75,14 +82,15 @@ Jika Anda tidak dapat membuka proyek Anda di browser, kembali ke terminal tempat
 
 Anda juga dapat memulai proyek astro baru berdasarkan contoh resmi atau cabang utama dari repositori GitHub mana pun dengan meneruskan argumen _--template_ ke perintah create astro.
 :::note
-
+```
     npm create astro@latest -- --template (example-name)
     npm create astro@latest -- --template (github-username) / (github-repo)
-
+```
 :::
 Secara default, perintah ini akan menggunakan cabang utama repositori template. Untuk menggunakan nama cabang yang berbeda, teruskan sebagai bagian dari argumen
-
+```
     --template: (github-username) / (github-repo) # (branch)
+```
 
 ## Pengaturan Editor
 
@@ -92,6 +100,10 @@ VS Code adalah editor kode populer untuk pengembang web, yang dibuat oleh Micros
 
 Astro bekerja dengan editor kode apa pun. Namun, VS Code adalah editor yang kami rekomendasikan untuk proyek Astro. Kami memelihara _Astro VS Code Extension_ resmi yang membuka beberapa fitur utama dan peningkatan pengalaman pengembang untuk proyek Astro.
 
-    Syntax highlighting for .astro files.
-    TypeScript type information for .astro files.
-    VS Code Intellisense for code completion, hints and more.
+Beberapa Ekstensi yang dianjurkan di VS Code
+
+```
+    - Syntax highlighting for .astro files.
+    - TypeScript type information for .astro files.
+    - VS Code Intellisense for code completion, hints and more.
+```

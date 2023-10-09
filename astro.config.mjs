@@ -23,10 +23,11 @@ export default defineConfig({
 					],
 				},
 				{					
-					label: 'NPM,VSCode,Git',
+					label: 'Utility Penting',
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'NPM', link: '/next/npm/' },
+						{ label: 'NVM', link: '/next/nvm/' },
 						{ label: 'VS Code', link: '/next/vsc/' },
 						{ label: 'Git', link: '/next/git/' },
 
