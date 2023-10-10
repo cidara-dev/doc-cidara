@@ -65,11 +65,7 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Intro', link: '/java/intro/' },
-						{ label: 'Sintaks Dasar', link: '/css/sintaks/' },
-						{ label: 'Selektor', link: '/css/selektor/' },
-						{ label: 'Warna dan Background', link: '/css/warna/' },
-						{ label: 'Teks Formatting', link: '/css/teks/' },
-						{ label: 'Selengkapnya', link: '/css/lengkap/' },
+						{ label: 'Variable', link: '/java/variable/' },
 					],
 
 				},

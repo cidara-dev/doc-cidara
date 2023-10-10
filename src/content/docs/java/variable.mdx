@@ -1,0 +1,76 @@
+---
+title: Variable
+description: linux dasar
+---
+
+## Membuat Variabel di Javascript
+
+#### - var
+
+```sh
+// membuat variabel dengan kata kunci let
+var siteName = "cidara";
+var url = "https://cidara.my.id";
+var visitorCount = 5921; 
+```
+
+:::note
+Pada Javascript kita dianjurkan menggunakan camelCase dalam penamaan.
+:::
+
+#### - let
+
+```sh
+// membuat variabel dengan kata kunci let
+let price = 15000;
+```
+
+#### - Tanpa awalnya
+
+```sh
+// membuat variabel tanpa awalan apapun
+stock = 12
+```
+
+## Menampilkan isi Variabel
+
+:::note[Fungsi]
+
+Fungsi ```console.log()``` menampilkan output ke console javascript;
+
+Fungsi ```document.write()``` menampilkan output ke dokumen HTML;
+
+dan Fungsi ```alert()``` menampilkan output ke jendela dialog;
+:::
+
+###### Contoh:
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Belajar Variabel dalam Javascript</title>
+    <script>
+        // membuat variabel
+        var name = "cidara";
+        var visitorCount = 50322;
+        var isActive = true;
+        var url = "https://cidara.my.id";
+
+        // menampilkan variabel ke jendela dialog (alert)
+        alert("Selamat datang di " + name);
+    
+        // menampilkan variabel ke dalam HTML
+        document.write("Nama Situs: " + name + "<br>");
+        document.write("Jumlah Pengunjung: " + visitorCount + "<br>");
+        document.write("Status Aktif: " + isActive + "<br>");
+        document.write("Alamat URL: " + url + "<br>");
+    </script>
+</head>
+<body>
+    
+
+</body>
+</html>
+```
