@@ -1,0 +1,123 @@
+---
+title: Node.js Process Manager (pm2)
+description: Node Process Manager (pm2)
+---
+
+
+import starlight from "@astrojs/starlight";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import pm2 from '/src/assets/images/pm2.png';
+
+
+# Installation
+
+<Tabs>
+<TabItem label="npm">
+
+```sh
+# install pm2 with npm
+$ npm install pm2@latest -g
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+# install pm2 with yarn
+$ yarn global add pm2
+```
+
+</TabItem>
+</Tabs>
+
+##### To install Node.js and NPM you can use [NVM](/utility/nvm/)
+
+#### Start an app
+
+The simplest way to start, daemonize and monitor 
+your application is by using this command line:
+
+```sh
+$ pm2 start app.js
+```
+
+###### Or start any other application easily:
+
+```sh
+$ pm2 start bashscript.sh
+$ pm2 start python-app.py --watch
+$ pm2 start binary-file -- --port 1520
+```
+
+:::tip[Some options you can pass to the CLI:]
+
+
+```sh
+# Specify an app name
+--name <app_name>
+
+# Watch and Restart app when files change
+--watch
+
+# Set memory threshold for app reload
+--max-memory-restart <200MB>
+
+# Specify log file
+--log <log_path>
+
+# Pass extra arguments to the script
+-- arg1 arg2 arg3
+
+# Delay between automatic restarts
+--restart-delay <delay in ms>
+
+# Prefix logs with time
+--time
+
+# Do not auto restart app
+--no-autorestart
+
+# Specify cron for forced restart
+--cron <cron_pattern>
+
+# Attach to application log
+--no-daemon
+
+```
+:::
+
+#### Managing processes
+
+Managing application state is simple here are the commands:
+
+```sh
+$ pm2 restart app_name
+$ pm2 reload app_name
+$ pm2 stop app_name
+$ pm2 delete app_name
+```
+
+Instead of ***app_name*** you can pass:
+
+- ***all*** to act on all processes
+- ***id*** to act on a specific process id
+
+#### Check status, logs, metrics
+Now that you have started this application, you can check its status, logs, metrics and even get the online dashboard with **pm2.io**.
+
+#### List managed applications
+List the status of all application managed by PM2:
+
+```sh
+$ pm2 [list|ls|status]
+```
+#### Terminal Based Dashboard
+
+Here is a realtime dashboard that fits directly into your terminal:
+
+```sh
+$ pm2 monit
+```
+:::note[Output]
+<img src={pm2.src} alt="pm2" />
+:::

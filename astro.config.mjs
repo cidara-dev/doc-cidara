@@ -26,10 +26,11 @@ export default defineConfig({
 					label: 'Utility Penting',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'NPM', link: '/next/npm/' },
-						{ label: 'NVM', link: '/next/nvm/' },
-						{ label: 'VS Code', link: '/next/vsc/' },
-						{ label: 'Git', link: '/next/git/' },
+						{ label: 'NPM dan Node', link: '/utility/npm/' },
+						{ label: 'pm2', link: '/utility/pm2/' },
+						{ label: 'NVM', link: '/utility/nvm/' },
+						{ label: 'VS Code', link: '/utility/vsc/' },
+						{ label: 'Git', link: '/utility/git/' },
 
 					],
 
@@ -41,6 +42,8 @@ export default defineConfig({
 						{ label: 'Intro', link: '/html/intro/' },
 						{ label: 'Tag,Elemen,Atribut', link: '/html/pre/' },
 						{ label: 'Paragraf', link: '/html/paragraf/' },
+						{ label: 'Gambar (img)', link: '/html/img/' },
+						{ label: 'Lengkap', link: '/html/lengkap/' },
 					],
 
 				},
@@ -49,7 +52,8 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Intro', link: '/css/intro/' },
-						{ label: 'Pre Requist', link: '/css/pre/' },
+						{ label: 'Sintaks Dasar', link: '/css/sintaks/' },
+						{ label: 'Selektor', link: '/css/selektor/' },
 					],
 
 				},

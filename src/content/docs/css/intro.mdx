@@ -1,0 +1,211 @@
+---
+title: Css Dasar
+description: linux dasar
+---
+
+import css from '/src/assets/images/css.png';
+import csss from '/src/assets/images/csss.png';
+
+Setelah belajar HTML, bahasa berikutnya yang harus kita pelajari agar menjadi web developer adalah CSS.
+
+### Pemahaman tentang CSS sangat penting, jika kamu ingin fokus pada ***front-end web development***.
+
+#### *Tugas front-end developer biasanya akan membuat halaman web berdasarkan desain dari desainer*.
+
+:::note[Topologi]
+<img src={css.src} alt="css" />
+:::
+
+# Apa itu CSS?
+
+### CSS (Cascade Style Sheet) adalah sebuah bahasa untuk mengatur tampilan web sehingga terlihat lebih menarik dan indah.
+
+###### Dengan CSS, kita dapat mengatur layout (tata letak), warna, font, garis, background, animasi, dan lain-lain.
+
+Contoh:
+
+:::note[Topologi]
+<img src={csss.src} alt="css" />
+:::
+
+##### Ada tiga cara menulis CSS di HTML:
+
+- ###### Internal CSS –> ditulis di dalam tag ```<style>```;
+- ###### Inline CSS –> ditulis di atribut elemen HTML;
+- ###### External CSS –> ditulis di file CSS terpisah dengan HTML.
+
+
+### Internal CSS
+
+Internal CSS adalah kode CSS yang ditulis di dalam tag ```<style>```. 
+Internal CSS juga dikenal dengan sebutan *Embeded CSS*.
+
+Tag ```<style>``` bisa ditulis di dalam tag ```<head>```, bisa juga ditulis di dalam tag ```<body>```. 
+Namun kebanyakan orang menulisnya di dalam ```<head>```.
+
+Contoh:
+
+:::tip[head]
+```sh
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh Internal CSS</title>
+  <!-- penulisan internal css dalam tag head -->
+  <style type="text/css">
+    p{
+      font-family: serif;
+      line-height: 1.75em;
+      font-size: 18px;
+    }
+    i { 
+      font-family: sans;
+      color: orange;
+    }
+  </style>
+</head>
+```sh
+:::
+
+:::note[body]
+```sh
+
+<body>
+  <!-- penulisan internal css dalam tag body -->
+  <style type="text/css">
+    h2 { 
+      font-family: sans;
+      color: #333;
+    }
+  </style>
+  <h2>Ini judul artikel</h2>
+  <p>Ini adalah paragraf yang memuat isi artikel. Paragraf ini hanya untuk percobaan saja. Percobaan untuk mendemokan <i>internal css</i>. Seperti namanya, <i>inline CSS</i> adalah kode CSS yang ditulis langsung dalam file HTML.</p>
+</body>
+</html>
+```
+:::
+
+##### Penulisan css di dalam tag ```<head>``` akan lebih dahulu dibaca dibandingkan di ```<body>```. Karena lebih dahulu dibaca, style yang akan dipakai adalah yang terakhir.
+
+### Eksternal CSS
+
+Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML. 
+Eksternal CSS ditulis di dalam file khusus yang berekstensi .css
+
+Contoh:
+
+Kita akan membuat sebuah file bernama style-ku.css yang di dalamnya berisi kode CSS.
+
+Berikut ini isinya:
+
+```sh
+
+p {
+    font-family: serif;
+    line-height: 1.75em;
+}
+
+i {
+    font-family: sans;
+    color: orange;
+}
+
+h2 {
+    font-family: sans;
+    color: #333;
+}
+```
+Untuk menggunakan CSS ini, kita harus menghubungkannya dengan HTML.
+
+Ada dua cara yang bisa kita lakukan:
+
+- ###### Menggunakan tag ```<link>```
+- ###### Menggunakan @import
+
+#### menggunakan tag ```<link>```
+
+```sh
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh Internal CSS</title>
+  <!-- penulisan internal css dalam tag head -->
+  <link rel="stylesheet" type="text/css" href="style-ku.css">
+</head>
+<body>
+    <h2>Ini judul artikel</h2>
+    <p>Ini adalah paragraf yang memuat isi artikel. Paragraf ini hanya untuk percobaan saja. Percobaan untuk mendemokan <i>internal css</i>. Seperti namanya, <i>inline CSS</i> adalah kode CSS yang ditulis langsung dalam file HTML.</p>
+</body>
+</html>
+```
+
+####  menggunakan ```@import```
+
+```sh
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh Internal CSS</title>
+  <!-- penulisan internal css dalam tag head -->
+  <style type="text/css">
+    @import "style-ku.css";
+  </style>
+</head>
+<body>
+    <h2>Ini judul artikel</h2>
+    <p>Ini adalah paragraf yang memuat isi artikel. Paragraf ini hanya untuk percobaan saja. Percobaan untuk mendemokan <i>internal css</i>. Seperti namanya, <i>inline CSS</i> adalah kode CSS yang ditulis langsung dalam file HTML.</p>
+</body>
+</html>
+```
+
+#### Eksternal CSS di dalam Folder
+Jika file eksternal CSS berada di dalam folder yang berbeda, 
+maka kita bisa tulis alamat path-nya di tag ```<link>```.
+
+File ***style.css*** akan kita pakai di ***index.html***, tapi dia berada di dalam folder ***css***.
+
+Maka kita bisa tuliskan seperti ini:
+
+```sh
+<link rel="stylesheet" href="css/style.css" />
+```
+
+#### Eksternal CSS dari Internet (CDN)
+Selain menggunakan eksternal CSS yang ada di satu folder dengan project, kita juga bisa gunakan CSS yang sudah ada di internet atau domain lain.
+
+Contoh:
+
+Misalnya file CSS-nya berada di:
+
+```sh
+    https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css
+```
+
+Maka kita bisa menggunakannya di HTML seperti ini:
+
+```sh
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+```
+
+### Inline CSS
+
+Inline CSS adalah kode CSS yang ditulis langsung pada atribut style di elemen HTML.
+
+Contoh:
+
+```sh
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contoh Inline CSS</title>
+</head>
+
+<body>
+
+  <h2 style="color:red;font-family:sans">Ini judul artikel</h2>
+  <p style="color:maroon">Ini adalah paragraf yang memuat isi artikel. Paragraf ini hanya untuk percobaan saja. Percobaan untuk mendemokan <i>internal css</i>. Seperti namanya, <i>inline CSS</i> adalah kode CSS yang ditulis langsung dalam file HTML.</p>
+</body>
+</html>
+```

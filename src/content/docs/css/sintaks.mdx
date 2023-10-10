@@ -1,0 +1,164 @@
+---
+title: Sintaks Dasar Css
+description: linux dasar
+---
+
+import sintaks from '/src/assets/images/sintaks.png';
+
+#### Struktur Dasar CSS
+
+Struktur kode CSS terdiri dari tiga bagian:
+
+- ##### Selektor;
+- ##### Blok Deklarasi;
+- ##### Properti dan nilanya.
+
+
+Format penulisannya seperti ini:
+
+:::note[Sintaks]
+<img src={sintaks.src} alt="css" />
+:::
+
+##### struktur-dasar-sintaks-css
+
+1. ###### Selektor
+
+Selektor adalah kata kunci untuk memilih elemen HTML yang akan kita beri style.
+
+Contohnya:
+
+```sh
+h1 {
+    color: red;
+}
+```
+
+Artinya: Kita memilih semua elemen ```<h1>```, lalu diberikan warna teks red ```(merah)```.
+
+Selektor dapat berupa nama ***tag, class, id, dan atribut***.
+
+Contoh:
+
+```sh
+/* Selektor dengan nama tag */
+h2 {
+    color: blue
+}
+
+/* Selektor dengan class */
+.bg-yellow {
+    backgound-color: yellow;
+}
+
+/* selektor dengan ID elemen */
+#header {
+    background: grey;
+}
+
+/* Selektor dengan Atribut */
+input[type=text]{
+    background: yellow;
+}
+```
+
+Pembahasan lebih mendalam tentang selektor akan kita bahas di: Memahami Selektor pada CSS.
+
+2. ###### Blok Deklarasi
+
+Blok deklarasi adalah tempat kita menuliskan atribut atau properti CSS yang akan diberikan ke pada elemen yang telah diseleksi.
+
+Contoh:
+
+```sh
+p {
+    font-size: 18px;
+}
+```
+
+Artinya, kita akan mengatur ukuran font dari tag ```<p>``` sebesar 18px.
+
+Blok deklarasi dimulai atau dibuka dengan tanda kurung ```{ lalu ditutup dengan }```.
+
+Satu blok deklarasi, bisa dipakai oleh lebih dari satu selektor.
+
+Contohnya:
+
+```sh
+h1, h2, h3, h4, h5, h6 {
+  color: teal;
+}
+```
+
+Ini artinya kita memberikan warna sama untuk semua tag ```<h1>``` sampai ```<h6>```.
+
+Bisa juga ditulis seperti ini:
+
+```sh
+h1,
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  color: teal;
+}
+```
+
+Intinya, selektor dipisah dengan koma.
+
+3. ###### Properti dan Nilainya
+
+Properti adalah sekumpulan aturan yang akan diberikan kepada elemen yang dipilih.
+
+Format penulisan properti seperti ini:
+
+```sh
+properti: "nilai";
+```
+
+Setiap properti harus diakhiri dengan titik koma ```(;)```. Apabila hanya terdapat satu properti, boleh tidak menggunakan titik koma.
+
+Properti harus ditulis di dalam blok deklarasi.
+
+Contoh: ✅
+
+```sh
+blockquote {
+    background: pink;
+}
+```
+
+Jangan tulis seperti ini: ❌
+
+```sh
+background: pink;
+
+p {
+
+}
+```
+
+Nilai untuk properti kadang diapit tanda petik, kadang juga tidak.
+
+Biasanya yang diapit dengan tanda petik adalah nilai yang berupa teks.
+
+Contohnya:
+
+```sh
+font-family: "Times new roman";
+```
+
+Mengapa ini diapit dengan tanda petik?
+
+Karena ada spasi di nama *Times new roman*.
+
+Nilai properti juga bisa kita berikan lebih dari satu.
+
+Contoh:
+
+```sh
+font-family: "Times new roman", Georgia, Roboto;
+```
+
+Ini bisanya kita pakai untuk memberikan nilai opsional. Misalnya font *Times new roman* tidak ada maka yang akan dipakai adalah *Georgia*, begitu juga seterusnya.

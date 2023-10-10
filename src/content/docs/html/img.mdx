@@ -1,0 +1,147 @@
+---
+title: IMAGE
+description: linux dasar
+---
+
+
+import img from '/src/assets/images/img.png';
+
+Pada tutorial ini, kita akan belajar cara menambahkan gambar di HTML.
+
+Menambahkan Gambar di HTML
+Gambar dapat kita tambakan di HTML dengan menggunakan tag ```<img>```. Tag ini memiliki atribut wajib, yakni ***src***.
+
+Jika kita tidak mengisi atribut ***src***, maka gambar tidak akan ditampilkan.
+
+:::note[Topologi]
+<img src={img.src} alt="paragraf" />
+:::
+
+Alamat URL gambar pada atribut ***src*** dapat berupa URL maupun alamat path. Lalu tag ``<img>`` harus ditutup dengan menambahkan garis miring.
+
+Contoh:
+
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Gambar di HTML</title>
+</head>
+<body>
+  <h1>Menampilkan Gambar di HTML</h1>
+  <p>Berikut ini adalah gambar sawah:</p>
+  <p>
+    <img src="sawah.jpg" />
+  </p>
+</body>
+</html>
+```
+
+:::tip[Perhatikan!]
+
+Pada contoh di atas, kita menuliskan langsung nama file dari gambar. 
+Ini karena kita menaruh gambar di dalam folder yang sama dengan file HTML.
+:::
+
+###### Apabila file gambarnya tersimpan di folder yang berbeda,
+###### maka kita hanya perlu menuliskan alamat path-nya.
+
+#### Misalkan, kita akan menyimpan gambar di dalam folder images.
+
+Maka di HTML, kita bisa tulis seperti ini:
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Gambar di HTML</title>
+</head>
+<body>
+  <h1>Menampilkan Gambar di HTML</h1>
+  <p>Berikut ini adalah gambar sawah:</p>
+  <p>
+    <img src="images/sawah.jpg" />
+  </p>
+</body>
+</html>
+```
+
+#### bagaimana kalau gambarnya berada di internet atau website lain?
+
+Nah, jika kita menggunakan gambar dari website lain..
+
+..kita harus menuliskan alamat URL lengkap dari gambar tersebut.
+
+Contoh:
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Gambar di HTML</title>
+</head>
+<body>
+  <h1>Menampilkan Gambar di HTML</h1>
+  <p>Berikut ini adalah gambar Candi Borobudur:</p>
+  <p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Borobudur_Temple.jpg/320px-Borobudur_Temple.jpg" />
+  </p>
+</body>
+</html>
+```
+
+### Format File Gambar untuk HTML
+
+:::note[format image]
+```
+Nama Format	    Nama Panjang	                    Ekstensi
+
+APNG	      Animated Portable Network Graphics	  .apng
+GIF	        Graphics Interchange Format	          .gif
+ICO	        Microsoft Icon	                      .ico, .cur
+JPEG	      Joint Photographic Expert Group image	.jpg, .jpeg, .jfif, .pjpeg, .pjp
+PNG	        Portable Network Graphics	            .png
+SVG	        Scalable Vector Graphics	            .svg
+WebP	      Web Picture	                          .webp
+```
+:::
+
+### Atribut untuk Tag ```<img>```
+
+Ada beberapa atribut yang sering digunakan pada tag ```<img>```:
+
+:::note[atribut img]
+
+**alt** untuk teks alternatif untuk gambar;
+
+**width** untuk menentukan lebar gambar;
+
+**height** untuk menentukan tinggi gambar;
+
+**style** untuk menentukan style CSS untuk gambar.
+
+:::
+
+:::tip[Contoh penulisan atribut]
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Gambar di HTML</title>
+</head>
+<body>
+  <h1>Menampilkan Gambar di HTML</h1>
+  <p>Berikut ini adalah gambar Candi Borobudur:</p>
+  <p>
+    <img src="" alt="Candi Borobudur" />
+  </p>
+</body>
+</html>
+```
+:::
