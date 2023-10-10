@@ -1,0 +1,100 @@
+---
+title: Java Script Dasar
+description: linux dasar
+---
+
+## Javascript adalah bahasa pemrograman yang wajib kamu pelajari jika ingin mendalami dunia ***web development***.
+
+#### Apa itu javascript?
+
+###### Javascript adalah bahasa pemrograman yang awalnya dirancang untuk berjalan di atas browser.
+
+Namun, seiring perkembangan zaman, javascript tidak hanya berjalan di atas browser saja. Javascript juga dapat digunakan pada sisi Server, Game, IoT, Desktop, dsb.
+
+Javascript awalnya bernama Mocha, lalu berubah menjadi LiveScript saat browser Netscape Navigator 2.0 rilis versi beta (September 1995). Namun, setelah itu dinamai ulang menjadi Javascript. 1
+
+#### Cara Menulis Kode Javascript di HTML
+
+##### - Embed (Kode Javascript ditempel langsung pada HTML)
+
+##### - Inline (kode Javascript ditulis pada atribut HTML)
+
+##### - Eksternal (Kode Javascript ditulis terpisah dengan file HTML)
+
+### Penulisan Kode javascript dengan Embed
+
+Pada cara ini, kita menggunakan tag ```<script>``` untuk menempelkan (embed) kode Javascript pada HTML. 
+Tag ini dapat ditulis di dalam tag ```<head>``` dan ```<body>```
+
+Contoh:
+
+```sh
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belajar Javascript dari Nol</title>
+        <script>
+            // ini adalah penulisan kode javascript
+            // di dalam tag <head>
+            console.log("Hello JS dari Head");
+        </script>
+    </head>
+    <body>
+        <p>Tutorial Javascript untuk Pemula</p>
+        <script>
+            // ini adalah penulisan kode javascript
+            // di dalam tag <body>
+            console.log("Hello JS dari body");
+        </script>
+    </body>
+</html>
+```
+
+Banyak yang merekomendasikan menuliskannya di dalam ```<body>```, karena akan membuat web di-load lebih cepat.
+
+### Penulisan Kode javascript Inline
+
+Pada cara ini, kita akan menulis kode javascript di dalam atribut HTML. 
+Cara ini biasanya digunakan untuk memanggil suatu fungsi pada event tertentu.
+
+Misal: ***saat link diklik***.
+
+Contoh:
+
+```sh
+<a href="#" onclick="alert('Yey!')">Klik aku!</a>
+```
+
+atau bisa juga seperti ini:
+
+```sh
+<a href="javascript:alert('Yey!')">Klik aku!</a>
+```
+
+### Penulisan Kode javascript Eksternal
+
+Pada cara ini, kita akan menulis kode javascript secara terpisah dengan file HTML.
+
+Isi dari file ***kode-program.js***:
+
+```sh
+alert("Hello, ini adalah program JS eksternal!");
+```
+
+
+Isi dari file ***index.html***:
+
+```sh
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Belajar Javascript dari Nol</title>
+    </head>
+    <body>
+        <p>Tutorial Javascript untuk Pemula</p>
+
+        <!-- Menyisipkan kode js eksternal -->
+        <script src="kode-program.js"></script>
+    </body>
+</html>
+```

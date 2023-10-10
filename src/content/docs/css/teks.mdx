@@ -1,0 +1,370 @@
+---
+title: Teks Formatting
+description: linux dasar
+---
+
+import warna from '/src/assets/images/warna.avif';
+
+## Text Align
+
+:::tip[properti]
+
+**left**      untuk rata kiri;
+
+**right**    untuk rata kanan;
+
+**center**   untuk rata tengah;
+
+**jusitfy**   untuk rata kiri dan kanan;
+
+**start**    rata pada awal (mengikuti direction);
+
+**end**     rata pada akhir (mengikuti direction);
+:::
+
+Contoh:
+
+```sh
+
+<html>
+  <head>
+    <title>Contoh Text Align</title>
+    <meta content="">
+    <style>
+      header {
+        text-align: center;
+      }
+
+      .text-left {
+        text-align: left;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-justify {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Belajar CSS Text Align</h1>
+    </header>
+
+    <article>
+      <p class="text-left">
+        Paragraf ini akan rata kiri. Ini cuma contoh paragraf untuk mendemokan text-align di CSS.
+        Silahkan tulis isi paragraf sesukamu. Cobalah perhatikan hasilnya di browser.
+      </p>
+      <p class="text-center">
+        Paragraf ini akan rata kiri. Ini cuma contoh paragraf untuk mendemokan text-align di CSS.
+        Silahkan tulis isi paragraf sesukamu. Cobalah perhatikan hasilnya di browser.
+      </p>
+      <p class="text-right">
+        Paragraf ini akan rata kiri. Ini cuma contoh paragraf untuk mendemokan text-align di CSS.
+        Silahkan tulis isi paragraf sesukamu. Cobalah perhatikan hasilnya di browser.
+      </p>
+      <p class="text-justify">
+        Paragraf ini akan rata kiri. Ini cuma contoh paragraf untuk mendemokan text-align di CSS.
+        Silahkan tulis isi paragraf sesukamu. Cobalah perhatikan hasilnya di browser.
+      </p>
+    </article>
+
+  </body>
+</html>
+```
+
+## Text Direction
+
+```sh
+
+<html>
+  <head>
+    <title>Contoh Text Direction and Align</title>
+    <meta content="">
+    <style>
+      header {
+        text-align: center;
+      }
+
+      body {
+          direction: rtl;
+      }
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <h1>Belajar CSS Text Align</h1>
+    </header>
+
+    <article>
+      <p>
+        وعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.
+      </p>
+      <p>
+        وعند موافقه العميل المبدئيه على التصميم يتم ازالة هذا النص من التصميم ويتم وضع النصوص النهائية المطلوبة للتصميم ويقول البعض ان وضع النصوص التجريبية بالتصميم قد تشغل المشاهد عن وضع الكثير من الملاحظات او الانتقادات للتصميم الاساسي.
+      </p>
+    </article>
+
+  </body>
+</html>
+```
+
+## Text Decoration
+
+:::note[properti]
+
+**none** artinya tidak menggunakan dekorasi apapun;
+
+**underline** artinya kita akan memberikan dekorasi garis bawah;
+
+**overline** dekorasi dengan garis di atas teks;
+
+**line-through** dekorasi garis di tengah atau teks tercoret.
+:::
+
+contoh:
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Text Decoration</title>
+    <style>
+        h1 {
+            text-decoration: underline;
+        }
+
+        p {
+            line-height: 1.5;
+        }
+
+        .upperline {
+            text-decoration: overline;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .strike {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contoh Text Decoration</h1>
+    <p>
+        <span class="underline">Ini Teks dengan dekorasi garis bawah</span>. Ini teks normal,
+        tanpa dekorasi apapun. Ini teks tanpa dekorasi. Ini teks <span class="strike">yang dicoret</span>.
+        <span class="upperline">Ini teks dengan dekorasi garis di atas.</span>
+    </p>
+</body>
+</html>
+```
+
+## Text Transform
+
+:::tip[Properti]
+
+**lowercase** untuk mengubah semua teks menjadi huruf kecil;
+
+**uppercase** untuk mengubah semua teks menjadi huruf kapital (besar);
+
+**capitalize** untuk mengubah teks pada huruf pertama kata menjadi kapital.
+
+**none** untuk tidak melakukan transform.
+:::
+
+
+contoh:
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Text Transform</title>
+    <style>
+        h1 {
+            text-transform: capitalize;
+        }
+        
+        .upper {
+            text-transform: uppercase;
+        }
+
+        .lower {
+            text-transform: lowercase;
+        }
+    </style>
+</head>
+<body>
+    <h1>latihan teks transform</h1>
+
+    <p>
+        <span class="upper">hello world</span> ini adalah contoh paragraf.
+        <span class="lower">TEKS INI DITULIS DENGAN HURUF KAPITAL, TAPI hasilnya
+            AKAN MENJADI LOWERCASE. KARENA CSS YANG MENGATURNYA.
+        </span>
+    </p>
+</body>
+</html>
+```
+
+## Text Spacing
+
+:::note[properti]
+
+**text-indent** untuk mengatur indentasi;
+
+**letter-spacing** untuk mengatur jarak spasi antar huruf;
+
+**line-height** untuk mengatur jarak antar baris;
+
+**word-spacing** untuk mengatur jarak antar kata;
+
+**white-space** untuk mengatur white space pada teks.
+:::
+
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Text Spacing</title>
+    <style>
+        h1 {
+            letter-spacing: -2px;
+            word-spacing: 4px;
+        }
+
+        .small {
+            font-size: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .line-height {
+            line-height: 1.6;
+        }
+
+        .indent {
+            text-indent: 2em;
+        }
+
+        .nowrap {
+            white-space: break-spaces;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contoh Text Spacing</h1>
+    <p class="small">Contoh teks dengan ukuran kecil</p>
+
+    <p class="indent">
+        Ini adalah contoh paragraf dengan teks indent. Artinya, teks pada baris
+        pertama akan masuk ke dalam sepanjang 2em. Panjang 2em sama dengan 2x16px,
+        maka 2em akan bernilai 32px.
+    </p>
+    <p class="line-height">
+        Ini adalah contoh paragraf tanpa indent. Paragraf normal dengan line height
+        sebesar 1.6. Normalnya line height tiap teks adalah 1. Tapi line height 1
+        sulit dibaca jika ada banyak teks. Line height 1.6 akan membuat teks jadi mudah
+        dibaca, karena ada spasi atau jarak di antara baris.
+    </p>
+    <p class="nowrap">
+        Ini conoth paragraf dengan white-space: break-spaces.
+        Artinya wthie space pada paragraf ini, akan mengikuti
+        spasi seperti yang ditulis di dalam HTML.
+    </p>
+</body>
+</html>
+```
+
+## Text Overflow
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Text Overflow</title>
+    <style>
+        p {
+            width: 320px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        Ini adalah contoh paragraf yang cukup panjang. Ukuran elemen paragraf 
+        ini sudah diatur pada CSS dengan panjang 320px. Akan tetapi panjang
+        teks pada paragraf ini melebihi ukuran paragraf. Maka akan terjadi
+        teks overflow. Tapi tenang saja, teks overflow bisa kita atur di CSS
+        dengan properti text-overflow.
+    </p>
+</body>
+</html>
+```
+## Text Shadow
+
+:::tip[value text-shadow]
+
+**x** adalah jarak bayangan berdasarkan sumbu x (vertikal);
+
+**y** adalah jarak bayangan bedasarkan sumbu y (horizontal);
+
+**blur** adalah ukuran kepudaran dari bayangan;
+
+**warna** adalah warna bayangan, bisa diberikan dalam nama warna, fungsi rgb(), hsl(), dsb.
+:::
+
+contoh:
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Text Shadow</title>
+    <style>
+        h1 {
+            color: lime;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <h1>Contoh Text Shadow</h1>
+</body>
+</html>
+```

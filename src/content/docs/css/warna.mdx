@@ -1,0 +1,151 @@
+---
+title: Warna
+description: linux dasar
+---
+
+import warna from '/src/assets/images/warna.avif';
+
+
+
+# Warna
+
+:::note[Selektor]
+<img src={warna.src} alt="css" />
+:::
+
+### Cara penulisan warna
+
+```sh
+header {
+    color: teal;
+}
+```
+
+```sh
+header {
+    color: #0011ff ;
+}
+```
+
+```sh
+h2 {
+    color: rgb(88, 255, 21);
+}
+```
+
+###### Untuk lebih jelas soal kode warna,bisa dilihat di [sini](https://www.w3.org/wiki/CSS/Properties/color/keywords)
+
+# Background
+
+### Background Warna
+
+contoh:
+
+```sh
+<html>
+  <head>
+    <title>Contoh Background Warna</title>
+    <meta content="">
+    <style>
+      header {
+        background-color: violet;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Belajar Background di CSS</h1>
+    </header>
+  </body>
+</html>
+```
+### Background Image
+
+```sh
+<html>
+  <head>
+    <title>Contoh Background Warna</title>
+    <meta content="">
+    <style>
+
+      body {
+        background-image: url('background.jpg');
+      }
+
+      header {
+        background: rgba(255,255,225, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Belajar Background di CSS</h1>
+    </header>
+  </body>
+</html>
+```
+
+##### Beberapa Properti Warna
+
+
+
+###### - background-repeat
+
+contoh:
+
+```sh
+
+body {
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
+}
+```
+
+###### - background-size
+
+```sh
+
+body {
+	background-image: url('background.jpg');
+ 	background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+
+###### - backdrop-filter
+
+```sh
+
+<html>
+  <head>
+    <title>Contoh Background Blur</title>
+    <meta content="">
+    <style>
+
+      body {
+        background-image: url('background.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      header {
+        background: rgba(255,255,225, 0.5);
+      }
+
+      article {
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+  <header>
+      <h1>Belajar Background di CSS</h1>
+    </header>
+    <article>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit iusto quidem magnam distinctio accusamus obcaecati quis assumenda architecto nesciunt facere, ducimus et quo animi itaque voluptas ipsum. Esse, debitis earum.
+    </article>
+  </body>
+</html>
+```
