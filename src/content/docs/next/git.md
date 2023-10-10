@@ -1,0 +1,62 @@
+---
+title: GIT
+description: linux dasar
+---
+
+##### Git adalah salah satu sistem pengontrol versi (Version Control System) pada proyek perangkat lunak yang diciptakan oleh Linus Torvalds.
+
+##### Pengontrol versi bertugas mencatat setiap perubahan pada file proyek yang dikerjakan oleh banyak orang maupun sendiri.
+
+##### Git dikenal juga dengan distributed revision control (VCS terdistribusi), artinya penyimpanan database Git tidak hanya berada dalam satu tempat saja.
+
+#### Cara Install Git di Linux
+
+    sudo apt install git
+
+#### Konfigurasi Awal
+
+Ada beberapa konfigurasi yang harus dupersiapakan sebelum mulai menggunakan Git, seperti name dan email.
+
+Silahkan lakukan konfigurasi dengan perintah berikut ini:
+
+    git config --global user.name username
+    git config --global user.email email@mail.com
+
+periksa konfigurasinya dengan perintah:
+
+    git config --list
+
+:::tip[Tips]
+
+    Jika kamu memiliki akun Github, Gitlab, Bitbucket atau yang lainnya…
+
+    maka username dan email harus mengikuti akun tersebut agar mudah diintegrasikan.
+
+    Selain konfigurasi awal ini, kamu juga bisa konfigurasi SSH key untuk Github, Gitlab, dan Bitbucket.
+
+:::
+
+#### - Membuat Repository Git di VS Code
+
+##### masuk tab Git di sidebar Kiri
+
+##### klik Initilize Repository
+
+##### Arahkan Ke folder Project
+
+##### Kik Initialize
+
+##### Tambahkan Pesan Commit
+
+##### Klik Commit
+
+##### Done
+
+:::tip[Beberapa Simbol Git di VS Code]
+
+    U artinya Untracked adalah file yang belum pernah dimasukkan ke dalam Git (file baru).
+    M artinya Modified adalah file yang sudah dimasukkan ke dalam database Git dan sudah pernah dimodifikasi.
+    D artinya Deleted adalah file yang dihapus.
+    A artinya Added adalah file yang ditambahkan ke dalam mode staged.
+
+:::

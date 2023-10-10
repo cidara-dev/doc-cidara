@@ -1,0 +1,138 @@
+---
+title: Visual Studio Code editor
+description: linux dasar
+---
+
+Visual Code Studio adalah sebuah code editor gratis yang bisa dijalankan di perangkat desktop berbasis Windows, Linux, dan MacOS. Code editor ini dikembangkan oleh salah satu raksasa teknologi dunia, Microsoft.
+
+## Installation
+
+### Method 1: Install Visual Studio Code on Debian 12 Using Snap
+
+##### Step 1: Install snapd
+
+    $ sudo apt install snapd
+
+##### Step 2: Enable Snap
+
+    $ sudo systemctl enable snapd && sudo systemctl start snapd
+
+##### Step 3: Install VS Code
+
+    $ sudo snap install code --classic
+
+Done,you can launce VS code using Terminal with type:
+
+    $ code
+
+or find on Launcher
+
+### Method 2: Install VS Code on Debian 12 Using the .deb File
+
+Navigate to the [Downloads](https://code.visualstudio.com/download) page on the VS Code’s official website and click on the dropdown menu to choose the “.deb” file.
+
+using terminal type:
+
+    $ sudo apt install ./<deb file name>
+
+## Method 3: Install Visual Studio Code on Debian 12 Using the Flatpak
+
+##### Step 1: Install Flatpak
+
+    $ sudo apt install flatpak
+
+##### Step 2: Add the flathub Repository
+
+    $ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+##### Step 3: Install VS Code
+
+    $ flatpak install flathub com.visualstudio.code
+
+## Fitur-Fitur Visual Code Studio
+
+##### Basic Editing
+
+##### IntelliSense
+
+##### Debugging
+
+##### Extension Marketplace
+
+##### Github Integration
+
+## Shortcut VS code
+
+##### - Open a folder
+
+    File > Open Folder (Ctrl+K Ctrl+O)
+
+##### -File Explorer
+
+    View > Explorer (Ctrl+Shift+E)
+
+##### -Search view
+
+    View > Search (Ctrl+Shift+F)
+
+##### -Source Control
+
+    View > Source Control (SCM) (Ctrl+Shift+G)
+
+##### -Run and Debug
+
+    View > Run (Ctrl+Shift+D)
+
+##### -Extensions view
+
+    View > Extensions (Ctrl+Shift+X)
+
+##### -Output panel
+
+    View > Output (Ctrl+K / Ctrl+H)
+
+##### -Integrated Terminal
+
+    View > Terminal (Ctrl+`)
+
+##### -Create a new file
+
+    File > New File (Ctrl+N)
+
+##### -Save a file
+
+    File > Save (Ctrl+S)
+
+##### -Auto Save
+
+    File > Auto Save
+
+##### -Run
+
+    Run > Start Debugging (F5)
+
+## Extensi VSCode yg wajib dimiliki Web Developer
+
+##### Prettier
+
+##### ESLint
+
+##### JavaScript Booster
+
+##### GitLens
+
+##### Auto close tag
+
+##### PHP Intellisense
+
+##### Beautify
+
+##### Live Server
+
+##### CSS Peek
+
+##### Intellisense for CSS Clas Names in HTML
+
+##### JavaScript (es6) Code Snippets
+
+##### Visual Studio Intellicode
