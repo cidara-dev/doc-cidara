@@ -7,6 +7,6 @@ Selamat datang di halaman tutorial Linux,berisi tentang beberapa perintah dasar 
 
 Tutorial ini dibuat atas dasar rasa ingin berbagi dan sama-sama belajar tentang Linux
 
-:::tip[MAAF KALO SUMBER DARI COPAS]
-berbagai sumber
+:::tip[Quote]
+"Orang Bijak belajar ketika mereka bisa,Orang Bodoh belajar ketika mereka harus"-Arthur Wellesley
 :::

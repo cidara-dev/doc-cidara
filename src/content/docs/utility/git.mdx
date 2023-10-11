@@ -10,30 +10,30 @@ description: linux dasar
 ##### Git dikenal juga dengan distributed revision control (VCS terdistribusi), artinya penyimpanan database Git tidak hanya berada dalam satu tempat saja.
 
 #### Cara Install Git di Linux
-
+```sh
     sudo apt install git
-
+```
 #### Konfigurasi Awal
 
 Ada beberapa konfigurasi yang harus dupersiapakan sebelum mulai menggunakan Git, seperti name dan email.
 
 Silahkan lakukan konfigurasi dengan perintah berikut ini:
-
+```sh
     git config --global user.name username
     git config --global user.email email@mail.com
-
+```
 periksa konfigurasinya dengan perintah:
-
+```sh
     git config --list
-
+```
 :::tip[Tips]
-
+```sh
     Jika kamu memiliki akun Github, Gitlab, Bitbucket atau yang lainnya…
 
     maka username dan email harus mengikuti akun tersebut agar mudah diintegrasikan.
 
     Selain konfigurasi awal ini, kamu juga bisa konfigurasi SSH key untuk Github, Gitlab, dan Bitbucket.
-
+```
 :::
 
 #### - Membuat Repository Git di VS Code
@@ -53,10 +53,10 @@ periksa konfigurasinya dengan perintah:
 ##### Done
 
 :::tip[Beberapa Simbol Git di VS Code]
-
-    U artinya Untracked adalah file yang belum pernah dimasukkan ke dalam Git (file baru).
-    M artinya Modified adalah file yang sudah dimasukkan ke dalam database Git dan sudah pernah dimodifikasi.
-    D artinya Deleted adalah file yang dihapus.
-    A artinya Added adalah file yang ditambahkan ke dalam mode staged.
-
+```sh
+    U   artinya Untracked adalah file yang belum pernah dimasukkan ke dalam Git (file baru).
+    M   artinya Modified adalah file yang sudah dimasukkan ke dalam database Git dan sudah pernah dimodifikasi.
+    D   artinya Deleted adalah file yang dihapus.
+    A   artinya Added adalah file yang ditambahkan ke dalam mode staged.
+```
 :::

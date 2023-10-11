@@ -1,5 +1,5 @@
 ---
-title: Variable
+title: Variable dan Tipe Data
 description: linux dasar
 ---
 
@@ -74,3 +74,69 @@ dan Fungsi ```alert()``` menampilkan output ke jendela dialog;
 </body>
 </html>
 ```
+
+## Tipe Data
+
+Tipe data adalah jenis-jenis data yang bisa kita simpan di dalam variabel.
+
+:::note[Beberapa tipe data]
+
+- String (teks)
+- Integer atau Number (bilangan bulat)
+- Float (bilangan Pecahan)
+- Boolean
+- Object
+:::
+
+contoh:
+
+```sh
+var name = "Dian";
+var age = 22;
+var single = true;
+```
+
+Pada contoh di atas variabel:
+
+- ***name*** bertipe data ***String***;
+
+- ***age*** bertipe data ***integer***;
+
+- ***single*** bertipe data ***boolean***;
+
+### Aturan Penulisan Nama Variabel di Javascript
+
+- Penamaan variabel **tidak boleh** menggunakan angka di depannya
+
+contoh:
+
+```sh
+    // salah
+    var 123nama = "cidara";
+
+    // benar
+    var nama123 = "cidara";
+```
+
+- Penamaan variabel boleh menggunakan awal underscore
+
+contoh:
+
+```sh
+    var _nama = "cidara";
+```
+ 
+- Penamaan variabel dianjurkan menggunakan camelCase apabila tediri dari dua suku kata.
+
+contoh:
+
+```sh
+    var fullName = "cidara";
+```
+
+- Penamaan variabel dianjurkan menggunakan bahasa inggris
+
+```sh
+    var postTitle = "Tutorial Javascript";
+```
+

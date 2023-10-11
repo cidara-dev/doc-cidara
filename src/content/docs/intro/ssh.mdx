@@ -3,19 +3,20 @@ title: Hardening SSH
 description: Hardening SSH untuk mengamankan server
 ---
 
-change default ssh port 22
+## ubah port default ssh dari port 22
 
-```
+```sh
 sudo nano /etc/ssh/sshd_config
 ```
 
 :::tip[Tips]
-change Port 22 to Port 721
+#### ubah Port 22 ke Port 721
 :::
 
 ### complete code
 
-```# This is the sshd server system-wide configuration file.  See
+```sh
+# This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
 
 # This sshd was compiled with PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
@@ -141,17 +142,17 @@ Subsystem sftp internal-sftp
 Protocol 2
 ```
 
-Auto change sshd
+#### Ubah seting sshd otomatis
 
-```
+```sh
 wget https://raw.githubusercontent.com/sdldev/server/main/ssh/sshd_config && sudo mv sshd_config  /etc/ssh/sshd_config && sudo chown root:root /etc/ssh/sshd_config && sudo chmod 644 /etc/ssh/sshd_config && sudo systemctl restart ssh && sudo reboot
 
 ```
 
-or
+###### atau
 
-```
+```sh
 wget https://raw.githubusercontent.com/sdldev/server/main/ssh/sshd_config1 && sudo mv sshd_config1  /etc/ssh/sshd_config && sudo chown root:root /etc/ssh/sshd_config && sudo chmod 644 /etc/ssh/sshd_config && sudo systemctl restart ssh && sudo reboot
 ```
 
-Download filenya [disini](https://raw.githubusercontent.com/sdldev/server/main/ssh/sshd_config)
+###### Download filenya [disini](https://raw.githubusercontent.com/sdldev/server/main/ssh/sshd_config)

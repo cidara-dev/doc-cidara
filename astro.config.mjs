@@ -16,8 +16,8 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Index', link: '/intro/linux-tutorial/' },
-						{ label: 'Perintah Dasar', link: '/intro/remote/' },
-						{ label: 'Web Server Lokal', link: '/intro/first/' },
+						{ label: 'Perintah Dasar', link: '/intro/basic/' },
+						{ label: 'Web Server Lokal', link: '/intro/web-server/' },
 						{ label: 'SSH', link: '/intro/ssh/' },
 
 					],
@@ -30,7 +30,7 @@ export default defineConfig({
 						{ label: 'pm2', link: '/utility/pm2/' },
 						{ label: 'NVM', link: '/utility/nvm/' },
 						{ label: 'VS Code', link: '/utility/vsc/' },
-						{ label: 'Git', link: '/utility/git/' },
+						{ label: 'Git Dasar', link: '/utility/git/' },
 
 					],
 
@@ -65,7 +65,7 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Intro', link: '/java/intro/' },
-						{ label: 'Variable', link: '/java/variable/' },
+						{ label: 'Variable dan Tipe Data', link: '/java/variable/' },
 					],
 
 				},
@@ -87,14 +87,7 @@ export default defineConfig({
 						{ label: 'Getting Started', link: '/astro/mulai/' },
 						{ label: 'Tutorial', link: '/astro/project/' },
 						{ label: 'Check in', link: '/astro/pages/' },
-					],
-
-				},
-				{					
-					label: 'Referensi',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Astro', link: 'reference/astro/' },
+						{ label: 'Starlight', link: '/astro/starlight/' },
 					],
 
 				},

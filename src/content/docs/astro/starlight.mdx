@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Astro
+title: Starlight
 description: Learn how to start building your next documentation site with Starlight by Astro.
 ---
 
@@ -7,11 +7,11 @@ import starlight from '@astrojs/starlight';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 // import tailwind from '@astrojs/tailwind';
 
-## Creating a new project
+## Membuat project Starlight
 
 Starlight is a full-featured documentation theme built on top of the [Astro](https://astro.build) framework.
 
-You can create a new Astro + Starlight project using the following command:
+Kamu dapat membuat project Starlight Astro baru dengan mengtikkan perintah:
 
 <Tabs>
 <TabItem label="npm">
@@ -42,9 +42,9 @@ yarn create astro --template starlight
 
 This will create a new [project directory](/guides/project-structure/) with all the necessary files and configurations for your site.
 
-:::tip[See it in action]
-Try Starlight in your browser:
-[open the template on StackBlitz](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics).
+:::tip[Lihat yang terjadi]
+Coba Starlight di Browsermu:
+buka template di [StackBlitz](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics).
 :::
 
 ## Creating content with Starlight
@@ -59,9 +59,9 @@ Starlight supports authoring content in Markdown and MDX. (You can add support f
 
 Add new pages to your site automatically by creating `.md` or `.mdx` files in `src/content/docs/`. Add sub-folders to organize your files, and to create multiple path segments:
 
-```
-src/content/docs/hello-world.md => your-site.com/hello-world
-src/content/docs/guides/faq.md => your-site.com/guides/faq
+```sh
+    src/content/docs/hello-world.md => your-site.com/hello-world
+    src/content/docs/guides/faq.md => your-site.com/guides/faq
 ```
 
 ### Type-safe frontmatter
