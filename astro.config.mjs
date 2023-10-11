@@ -66,6 +66,8 @@ export default defineConfig({
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Intro', link: '/java/intro/' },
 						{ label: 'Variable dan Tipe Data', link: '/java/variable/' },
+						{ label: 'Pencabangan', link: '/java/cabang/' },
+						{ label: 'Perulangan', link: '/java/ulang/' },
 					],
 
 				},

@@ -1,0 +1,226 @@
+---
+title: Perulangan
+description: linux dasar
+---
+
+import foor from '/src/assets/images/for.webp';
+import fooor from '/src/assets/images/for.png';
+import whilee from '/src/assets/images/while.gif';
+import dowel from '/src/assets/images/do-while.png';
+
+Apa yang akan kamu lakukan saat disuruh mencetak kalimat berulang-ulang?
+
+Misalnya:
+
+“Tolong tampilkan kalimat "Tutorial Javascript!" di website sebanyak 10 kali”
+
+kamu bisa menuliskannya dengan fungsi ```document.write()```
+
+begini:
+
+```sh
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+    document.write("<p>Tutorial Javascript!</p>");
+```
+
+kalu disuruh nulis 100.000 kali??
+
+###### capek dong,masa capek lah
+
+karena itu kita menggunakan **perulangan**
+
+
+##### Secara umum, perulangan ini dibagi dua,yaitu: 
+
+#### counted loop dan uncounted loop.
+
+Perbedaanya:
+
+```sh
+    Counted Loop merupakan perulangan yang jelas dan sudah tentu banyak perulangannya.
+    Sedangkan Uncounted Loop, merupakan perulangan yang tidak jelas berapa kali ia harus mengulang.
+```
+
+Perulangan yang termasuk dalam Counted Loop:
+```sh
+    Perulangan For
+    Perulangan Foreach
+    Perulangan Repeat
+```
+
+Perulangan yang termasuk dalam Uncounted Loop:
+```sh
+    Perulangan While
+    Perulangan Do/While
+```
+
+## 1. Perulangan ```For``` di Javascript
+
+Perulangan for merupakan perulangan yang termasuk dalam ```couted loop```, karena sudah jelas berapa kali ia akan mengulang.
+
+:::note[for]
+<img src={foor.src} alt="css" />
+:::
+
+
+Bentuknya kodenya seperti ini:
+
+```sh
+for(let i = 0; i < 10; i++){
+    document.write("<p>Perulangan ke-" + i + "</p>")
+}
+```
+
+Yang perlu diperhatikan adalah kondisi yang ada di dalam kurung setelah kata for.
+
+Kondisi ini akan menentukan:
+
+```sh
+    Hitungan akan dimulai dari 0 (i = 0);
+    Hitungannya sampai berapa? Sampai i < 10;
+    Lalu di setiap perulangan i akan bertambah +1 (i++).
+```
+
+Variabel ```i``` pada perulangan ```for``` berfungsi untuk menyimpan nilai hitungan.
+
+Jadi setiap perulangan dilakukan nilai i akan selalu bertambah satu. Karena kita menentukannya di bagian ```i++```.
+
+Ini hasil outputnya:
+
+:::note[demo for]
+<img src={fooor.src} alt="css" />
+:::
+
+Apakah nama variabelnya harus selalu ```i```?
+
+Tidak.
+
+Kita juga bisa menggunakan nama lain.
+
+Misalnya:
+
+```sh
+for(counter = 0; counter < 50; counter+=2){
+    document.write("<p>Perulangan ke-"+counter+"</p>");
+}
+```
+
+Pada contoh tersebut, kita melakukan perulangan dimulai dari ```nol 0```. Lalu di setiap perulangan nilai variabel ```couter``` akan ditambah ```2``` ```(counter+=2)```.
+
+## 2. Perulangan ```While``` di Javascript
+
+Perulangan ```while``` merupakan perulangan yang termasuk dalam perulangan ```uncounted loop```.
+
+Perulangan ```while``` juga dapat menjadi perulangan yang ```counted loop``` dengan memberikan counter di dalamnya.
+
+Untuk memahami perulangan ini…
+
+…mari kita coba lihat contohnya:
+
+```sh
+var ulangi = confirm("Apakah anda mau mengulang?");
+var counter = 0;
+
+while(ulangi){
+    var jawab = confirm("Apakah anda mau mengulang?")
+    counter++;
+    if(jawab == false){
+        ulangi = false;
+    }
+}
+
+document.write("Perulangan sudah dilakuakn sebanyak "+ counter +" kali");
+```
+
+Bisa disederhanakan menjadi:
+
+```sh
+var ulangi = confirm("Apakah anda mau mengulang?");
+var counter = 0;
+
+while(ulangi){
+    counter++;
+    ulangi = confirm("Apakah anda mau mengulang?");
+}
+
+document.write("Perulangan sudah dilakuakn sebanyak "+ counter +" kali");
+```
+
+Hasilnya:
+
+:::note[demo while]
+<img src={whilee.src} alt="css" />
+:::
+
+Coba perhatikan blok kode ```while```:
+
+```sh
+while(ulangi){
+    counter++;
+    ulangi = confirm("Apakah anda mau mengulang?");
+}
+```
+
+Di sana… Perulangan akan terjadi selama variabel ```ulangi``` brenilai ```true```.
+
+Lalu kita menggunakan fungsi confirm```()``` untuk menampilkan dialog konfirmasi.
+
+Selama kita memilih ```Ok``` pada dialog konfirmasi, maka variabel ```ulangi``` akan terus bernilai ```true```.
+
+Tapi kalau kita pilih ```Cancel```, maka variabel ```ulangi``` akan bernilai ```false```.
+
+Saat variabel ```ulangi``` bernilai ```false```, maka perulangan akan dihentikan.
+
+## 3. Perulangan ```Do/While``` di Javascript
+
+Perulangan ```do/while``` sama seperti perulangan ```while```.
+
+Perbedaanya:
+
+Perulangan ```do/while``` akan melakukan perulangan sebanyak 1 kali terlebih dahulu, lalu mengecek kondisi yang ada di dalam kurung ```while```.
+
+Bentuknya seperti ini:
+
+```sh
+do {
+    // blok kode yang akan diulang
+} while (<kondisi>);
+```
+
+Jadi perbedaanya:
+
+```sh
+    Perulangan do/while akan mengecek kondisi di belakang (sesudah mengulang), sedangkan while akan mencek kondisi di depan atau awal (sbelum mengulang).
+```
+
+Mari kita coba lihat contohnya:
+
+```sh
+var ulangi = confirm("Apakah anda mau mengulang?");;
+var counter = 0;
+
+do {
+    counter++;
+    ulangi = confirm("Apakah anda mau mengulang?");
+} while(ulangi)
+
+document.write("Perulangan sudah dilakuakn sebanyak "+ counter +" kali");
+```
+
+Contoh tersebut sama seperti contoh pada perulangan ```while```.
+
+Saat perulangan pertama, cobalah untuk membatalkan perulangannya dengan memilih ```Cancel```.
+
+Maka hasilnya:
+
+:::note[do-while]
+<img src={dowel.src} alt="css" />
+:::
