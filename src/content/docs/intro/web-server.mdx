@@ -80,6 +80,19 @@ Check the status again to confirm.
 ## Step 2 - Install PHP
 
 Debian 12 ships with PHP 8.2 by default. You can install it by running the following command.
+
+```sh
+apt-get install ca-certificates apt-transport-https software-properties-common curl lsb-release -y
+```
+
+```sh
+apt update
+```
+
+```sh
+apt-get -y install lsb-release ca-certificates curl
+```
+
 ```sh
     $ sudo apt install php-fpm php-cli php-mysql php-mbstring php-xml php-gd
 ```
