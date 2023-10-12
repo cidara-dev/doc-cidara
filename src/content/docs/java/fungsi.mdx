@@ -1,0 +1,263 @@
+---
+title: Function
+description: linux dasar
+---
+
+import proogram from '/src/assets/images/program.png';
+
+##### Fungsi adalah sub-program yang bisa digunakan kembali baik di dalam program itu sendiri, maupun di program yang lain.
+
+###### Fungsi di dalam Javascript adalah sebuah objek. Karena memiliki properti dan juga method.
+
+## 4 Cara Membuat Fungsi di Javascript
+
+```sh
+-    Menggunakan cara biasa;
+-    Menggunakan ekspresi;
+-    Menggunakan tanda panah (=>);
+-    dan menggunakan Constructor.
+```
+
+### 1. Membuat Fungsi dengan Cara Biasa
+
+Cara ini paling sering digunakan, terutama buat yang baru belajar Javascript.
+
+```sh
+function namaFungsi(){
+    console.log("Hello World!");
+}
+```
+
+### 2. Membuat Fungsi dengan Ekspresi
+
+Cara membuat fungsi dengan ekspresi:
+
+```sh
+var namaFungsi = function(){
+    console.log("Hello World!");
+}
+```
+
+Kita menggunakan ```variabel```, lalu diisi dengan ```fungsi```. 
+Fungsi ini sebenarnya adalah ```fungsi anonim (anonymous function)``` atau ```fungsi tanpa nama```.
+
+### 3. Membuat Fungsi dengan Tanda Panah
+
+Cara ini sering digunakan di kode Javascript masa kini, karena lebih sederhana. 
+Akan tetapi sulit dipahami bagi pemula. Fungsi ini mulai muncul pada **standar ES6**.
+
+Contoh:
+
+```sh
+var namaFungsi = () => {
+    console.log("Hello World!");
+}
+
+// atau seperti ini (jika isi fungsi hanya satu baris):
+var namaFungsi = () => console.log("Hello World!");
+```
+
+Sebenarnya hampir sama dengan yang menggunakan ```ekspresi```. Bedanya, kita menggunakan tanda panah ```(=>)``` sebagai ganti function.
+
+Pembuatan fungsi dengan cara ini disebut arrow function.
+
+### 4. Membuat Fungsi dengan Kostruktor
+
+Cara ini sebenarnya tidak direkomendasikan oleh ***Developer Mozilla***
+
+, karena terlihat kurang bagus. Soalnya body fungsinya dibuat dalam bentuk ```string``` yang dapat mempengaruhi kinerja **engine javascript**.
+
+Contoh:
+
+```sh
+var namaFungsi = new Function('console.log("Hello World!");');
+```
+
+Untuk yang masih pemula, saya rekomendasikan gunakan cara yang pertama dulu. 
+Nanti kalau sudah terbiasa baru coba gunakan cara ke-2 dan ke-3.
+
+## Cara Memanggil/Eksekusi Fungsi
+
+### Fungsi dengan Nama
+
+Kita bisa memanggil fungsi di dalam kode Javascript dengan menuliskan nama fungsinya seperti ini:
+
+```sh
+namaFungsi();
+```
+
+Contoh:
+
+```sh
+// membuat fungsi
+function sayHello(){
+    console.log("Hello World!");
+}
+
+// memanggil fungsi
+sayHello() // maka akan menghasilkan -> Hello World!
+```
+
+Selain dengan cara di atas, kita juga bisa memanggil fungsi melalui atribut ```event``` pada HTML.
+
+Contoh:
+
+```sh
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    // membuat fungsi
+    var sayHello = () => alert("Hello World!");
+    </script>
+</head>
+<body>
+    <!-- Memanggil fungsi saat link diklik -->
+    <a href="#" onclick="sayHello()">Klik Aku!</a>
+</body>
+</html>
+```
+
+### Fungsi dengan Parameter
+
+Parameter adalah variabel yang menyimpan nilai untuk diproses di dalam fungsi.
+
+Contoh:
+
+```sh
+function kali(a, b){
+    hasilKali = a * b;
+    console.log("Hasil kali a*b = " + hasilKali);
+}
+```
+
+Pada contoh di atas, ```a``` dan ```b``` adalah sebuah parameter.
+
+Lalu cara memanggil fungsi yang memiliki parameter adalah seperti ini:
+
+```sh
+kali(3, 2); // -> Hasil kali a*b = 6
+```
+
+Kita memberikan ```3``` untuk parameter ```a``` dan ```2``` untuk parameter ```b```.
+
+### Fungsi yang Mengembalikan Nilai
+
+Agar hasil pengolahan nilai di dalam fungsi dapat digunakan untuk proses berikutnya, 
+maka fungsi harus mengembalikan nilai.
+
+Pengembalian nilai pada fungsi menggunakan kata kunci return kemudian diikuti dengan nilai 
+atau variabel yang akan dikembalikan. 
+
+Contoh:
+
+```sh
+function bagi(a,b){
+    hasilBagi = a / b;
+    return hasilBagi;
+}
+
+// memanggil fungsi
+var nilai1 = 20;
+var nilai2 = 5;
+var hasilPembagian = bagi(nilai1, nilai2);
+
+console.log(hasilPembagian); //-> 4
+```
+
+### Contoh Program Javascript dengan Fungsi
+
+Program ini berisi **CRUD** ***(Crete, Read, Update, Delete)*** data barang yang tersimpan dalam sebuah array.
+
+Silahkan buat dua file baru:
+```sh
+js-fungsi/
+├── fungsi.js
+└── index.html
+```
+
+File ```index.html``` adalah file yang menampilkan halaman web. Sedangkan file ```fungsi.js``` adalah programnya.
+
+Berikut ini isi file ```index.html```:
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Fungsi di Javascript</title>
+</head>
+<body>
+    
+    <fieldset>
+        <legend>Input Form</legend>
+        <input type="text" name="barang" placeholder="input nama barang..." />
+        <input type="button" onclick="addBarang()" value="Tambah" />
+    </fieldset>
+
+    <div>
+        <ul id="list-barang">
+        </ul>
+    </div>
+
+    <script src="fungsi.js"></script>
+</body>
+</html>
+```
+
+Berikutnya kita akan buat kode di file ```fungsi.js```. Silahkan gunakan gaya pembuatan fungsi yang kamu sukai.
+
+Pada contoh ini, kita akan menggunakan cara yang pertama. Karena lebih mudah.
+
+Berikut ini isi file ```fungsi.js```:
+
+```sh
+
+var dataBarang = [
+    "Buku Tulis",
+    "Pensil",
+    "Spidol"
+];
+
+
+function showBarang(){
+    var listBarang = document.getElementById("list-barang");
+    // clear list barang
+    listBarang.innerHTML = "";
+
+    // cetak semua barang
+    for(let i = 0; i < dataBarang.length; i++){
+        var btnEdit = "<a href='#' onclick='editBarang("+i+")'>Edit</a>";
+        var btnHapus = "<a href='#' onclick='deleteBarang("+i+")'>Hapus</a>";
+
+        listBarang.innerHTML += "<li>" + dataBarang[i] + " ["+btnEdit + " | "+ btnHapus +"]</li>";        
+    }
+}
+
+function addBarang(){
+    var input = document.querySelector("input[name=barang]");
+    dataBarang.push(input.value);
+    showBarang();
+}
+
+function editBarang(id){
+    var newBarang = prompt("Nama baru", dataBarang[id]);
+    dataBarang[id] = newBarang;
+    showBarang();
+}
+
+function deleteBarang(id){
+    dataBarang.splice(id, 1);
+    showBarang();
+}
+
+showBarang();
+```
+
+Hasilnya:
+
+:::note[program]
+<img src={proogram.src} alt="css" />
+:::

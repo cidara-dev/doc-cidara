@@ -1,0 +1,205 @@
+---
+title: Object
+description: linux dasar
+---
+
+import ferrari from '/src/assets/images/ferrari.png';
+
+di dalam pemrograman, Biasanya menggunakan paradigma **OOP** ***(Object Oriented Programming)*** atau pemrograman beorientasikan objek.
+
+Nah paradigma **OOP*** ini merupakan sebuah teknik atau cara di dalam pemrograman dimana segala sesuatu di pandang sebagai objek.
+
+Objek-objek ini dapat saling berinteraksi sehingga membentuk sebuah program.
+
+
+<img src={ferrari.src} alt="css" />
+
+###### Objek pada javascript, dapat dibuat dengan tanda *kurung kurawal* dengan isi berupa *key* dan *value*.
+
+contoh:
+
+```sh
+var car = {
+    type:"Fiat", 
+    model:"500", 
+    color:"white"
+};
+```
+
+Pada contoh di atas, kita baru hanya membuat properti saja.
+
+```sh
+Properti adalah ciri khas dari objek (variabel). 
+Sedangkan method adalah perilaku dari objek (fungsi).
+```
+
+Method dapat dibuat dengan cara mengisi nilai ```(value)``` dengan sebuah ```fungsi```.
+
+contoh:
+
+```sh
+var car = {
+    // properti
+    type: "Fiat", 
+    model: "500", 
+    color: "white",
+
+    // method
+    start: function(){
+        console.log("ini method start");
+    },
+    drive: function(){
+        console.log("ini method drive");
+    },
+    brake: function(){
+        console.log("ini method brake");
+    },
+    stop: function(){
+        console.log("ini method stop");
+    }
+    
+};
+```
+
+## Cara Mengakses Properti dan Method Objek 
+
+#### menggunakan tanda titik ```(.)``` diikuti dengan nama properti atau method.
+
+contoh:
+
+```sh
+console.log(car.type);
+console.log(car.color);
+
+car.start();
+car.drive();
+```
+
+###### perhatikan ```car.type```, ```car.color```, ```car.start()```, dan ```car.drive()```!
+
+Untuk mengakses properti, kita cukup gunakan nama ```objek.properti```. Sedangkan untuk ```method```, kita harus menggunakan tanda kurung. 
+Ini menyatakan kalau kita ingin mengeksekusi fungsi.
+
+#### Menggunakan Keyword ```this```
+
+Kata kunci ```this``` digunakan untuk mengakses properti dan method dari dalam method (objek).
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Objek Javascript</title>
+
+    <script>
+        var person = {
+            firstName: "Kirana",
+            lastName: "Candrakanti",
+            showName: function(){
+                alert(`Nama: ${this.firstName} ${this.lastName}`);
+            }
+        };
+
+        person.showName();
+    </script>
+</head>
+<body>
+```
+
+Kata kunci ```this``` pada contoh di atas akan mengacu pada objek ```person```.
+
+#### Membuat Class Objek dengan this
+
+Pada pemrograman berorientasikan objek, kita biasanya membuat objek dengan membuat ***instance*** dari ***class***.
+
+Akan tetapi pada contoh-contoh di atas, kita membuat objeknya secara langsung.
+
+Lalu bagaimana kalau kita inign membuat objek yang lain dengan properti yang sama.
+
+Bisa saja dibuat tiga seperti ini:
+
+```sh
+
+var person = {
+    firstName: "Cikal",
+    lastName: "Endra",
+    showName: function(){
+        alert(`Nama: ${this.firstName} ${this.lastName}`);
+    }
+};
+
+var person1 = {
+    firstName: "Dathan",
+    lastName: "Ahza",
+    showName: function(){
+        alert(`Nama: ${this.firstName} ${this.lastName}`);
+    }
+};
+
+var person2 = {
+    firstName: "Kirana",
+    lastName: "Cnadrakanti",
+    showName: function(){
+        alert(`Nama: ${this.firstName} ${this.lastName}`);
+    }
+};
+
+
+```
+
+###### Ini tentu tidak efektif, Solusinya kita bisa gunakan ```class```
+
+Contoh:
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Objek Javascript</title>
+
+    <script>
+        function Person(firstName, lastName){
+            // properti
+            this.firstName = firstName;
+            this.lastName = lastName;
+
+            // method
+            this.fullName = function(){
+                return `${this.firstName} ${this.lastName}`
+            }
+            this.showName = function(){
+                document.write(this.fullName());
+            }
+        }
+
+        var person1 = new Person("Cikal", "Endra");
+        var person2 = new Person("Dathan", "Ahza");
+        var person3 = new Person("Kirana", "Candrakanti");
+
+        person1.showName();
+        document.write("<br>");
+        person2.showName();
+        document.write("<br>");
+        person3.showName();
+    </script>
+</head>
+<body>
+```
+
+Perhatikanlah contoh di atas!
+
+Kita membuat objek baru dengan kata kunci ```new```, lalu diberikan nilai parameter ```firstName``` dan ```lastName```.
+
+```sh
+var person1 = new Person("Cikal", "Endra");
+```
+
+Jadi, berapapun objek yang ingin kita buat…
+
+#### cukup gunakan kata kunci ```new``` saja.

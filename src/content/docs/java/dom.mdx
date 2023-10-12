@@ -1,0 +1,341 @@
+---
+title: Document Object Model(DOM)
+description: linux dasar
+---
+
+import Dom from '/src/assets/images/dom.png';
+import Write from '/src/assets/images/write.gif';
+import Pohon from '/src/assets/images/pohon.gif';
+import Objekk from '/src/assets/images/objek.png';
+
+
+
+**DOM** merupakan singkatan dari ***Document Object Model***.
+
+Artinya, dokumen **(HTML)** yang dimodelkan dalam sebuah objek.
+
+Objek dari dokumen ini menyediakan sekumpulan fungsi dan atribut/data yang bisa kita manfaatkan dalam membuat program Javascript. 
+Inilah yang disebut API *(Application Programming Interface)*.
+
+:::note[DOM]
+<img src={Dom.src} alt="css" />
+:::
+
+**DOM** tidak hanya untuk dokumen **HTML** saja. **DOM** juga bisa digunakan untuk dokumen **XML** dan **SVG**.
+
+…dan **DOM** juga tidak hanya ada di *Javascript* saja, **DOM** juga ada pada bahasa pemrograman lain.
+
+### Cara Penggunaan DOM
+
+Objek DOM di javascript bernama ```document```. 
+Objek ini berisi segala hal yang kita butuhkan untuk **```MEMANIPULASI HTML```**.
+
+Di dalam objek ```document```, terdapat fungsi-fungsi dan atribut yang bisa kita gunakan untuk memanipulasi dokumen HTML.
+
+Sebagai contoh fungsi ```documen.write()```.
+
+Fungsi ini digunakan untuk menulis sesuatu ke dokumen HTML.
+
+Contoh:
+
+Coba ketik kode berikut di dalam consoel Javascript.
+
+```sh
+document.write("Hello World");
+document.write("<h2>Saya Sedang Belajar Javascript</h2>");
+```
+
+maka hasilnya:
+
+:::note[DOM]
+<img src={Write.src} alt="css" />
+:::
+
+### Mengkases Elemen Tertentu dengan DOM
+
+Objek document adalah model dari dokumen HTML. 
+Objek ini berisi kumpulan fungsi dan atribut berupa objek dari elemen HTML yang bisa digambarkan dalam bentuk pohon seperti ini:
+
+:::note[HTML tree]
+<img src={Pohon.src} alt="css" />
+:::
+
+Struktur pohon ini akan memudahkan kita dalam menggunakan elemen tertentu.
+
+Mari kita coba mengakses objek **```<head>```** dan **```<body>```**.
+
+Coba ketik kode berikut pada Console:
+
+```sh
+// mengakses objek head
+document.head;
+
+// mengakses objek body
+document.body;
+
+// melihat panakang judul pada objek title
+document.title.length
+```
+
+:::note
+<img src={Objekk.src} alt="css" />
+:::
+
+Apabila kita ingin mengakses elemen yang spesifik, terdapat beberapa fungsi yang bisa digunakan:
+
+```sh
+    getElementById() fungsi untuk memilih elemen berdasarkan atribut id.
+    getElementByName() fungsi untuk memilih elemen berdasarkan atribut name.
+    getElementByClassName() fungsi untuk memilih elemen berdasarkan atribut class.
+    getElementByTagName() fungsi untuk memilih elemen berdasarkan nama tag.
+    getElementByTagNameNS() fungsi untuk memilih elemen berdasarkan nama tag.
+    querySelector() fungsi untuk memilih elemen berdasarkan query.
+    querySelectorAll() fungsi untuk memilih elemen berdasarkan query.
+    dan lain-lain.
+```
+
+Fungsi-fungsi di atas cukup sering digunakan untuk mengakses elemen tertentu.
+
+Contoh:
+
+Misalkan kita punya kode HTML seperti ini:
+
+```sh
+<div id="tutorial"></div>
+```
+
+Maka untuk memilih element tersebut di *Javascript*, kita bisa gunakan fungsi **```getElementByI()```** seperti ini:
+
+```sh
+// memilih elemen dengan id 'tutorial'
+var tutorial = document.getElementById('tutorial');
+```
+
+Variabel ```tutorial``` akan menjadi sebuah objek DOM dari elemen yang kita pilih.
+
+Contoh yang lebih lengkap:
+
+```sh
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memilih Elemen Berdasarkan ID</title>
+</head>
+<body>
+
+    <!-- Elemen div yang akan kita pilih dari JS -->
+    <div id="tutorial"></div>
+
+
+    <script type="text/javascript">
+        // mengakses elemen tutorial
+        var tutorial = document.getElementById("tutorial");
+
+        // mengisi teks ke dalam elemen
+        tutorial.innerText = "Tutorial Javascript";
+
+        // memberikan CSS ke elemen
+        tutorial.style.backgroundColor = "gold";
+        tutorial.style.padding = "10px";
+
+    </script>
+
+</body>
+</html>
+```
+
+Bagaimana kalau ada lebih dari satu elemen yang dipilih?
+
+Misalkan kita memilih elemen berdasarkan nama tag atau atribut class.
+
+Jawabannya:
+
+Eelemn yang akan terpilih akan menjadi sebuah array. Karena kita memilih sekumpulan elemen.
+
+Array tersebut akan berisi objek DOM dari elemen-elemen yang terpilih.
+
+Contohnya:
+
+```sh
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM API Javascript</title>
+</head>
+
+<body>
+
+    <p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quo quaerat recusandae qui ullam eaque cumque ea fugit,
+        debitis commodi ipsum illo dolorum consequatur sed laudantium suscipit quis magni,
+        maiores in?</p>
+
+    <p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quo quaerat recusandae qui ullam eaque cumque ea fugit,
+        debitis commodi ipsum illo dolorum consequatur sed laudantium suscipit quis magni,
+        maiores in?</p>
+
+    <p class="paragraf">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quo quaerat recusandae qui ullam eaque cumque ea fugit,
+        debitis commodi ipsum illo dolorum consequatur sed laudantium suscipit quis magni,
+        maiores in?</p>
+
+
+    <script>
+        var paragraf = document.getElementsByClassName("paragraf");
+        console.log(paragraf);
+    </script>
+
+</body>
+
+</html>
+```
+
+
+Pada contoh di atas, kita memiliki tiga buah paragraf dengan nama class paragraf.
+
+Lalu kita mencoba memilih ketiga paragraf tersbut melalui *javascript* dengan method atau fungsi **```getElementByClassName()```**.
+
+Variabel ```paragraf``` akan berisi sebuah array yang di dalamnya terdapat tiga buah objek **DOM** dari paragraf.
+
+
+### Membuat Elemen dengan DOM API
+
+DOM juga menyediakan fungsi untuk membuat elemen HTML.
+
+Salah satunya adalah fungsi **```createElement()```**.
+
+Contoh:
+
+```sh
+document.createElement('p');
+```
+
+Maka, akan tercipta elemen ```<p>``` baru. Namun tidak akan ditampilkan ke dalam halaman web.
+
+Mengapa tidak ditampilakn?
+
+Karena kita belum menambahkannya ke dalam body dokumen.
+
+Cara menambahkannya ke body dokumen, kita bisa gunakan fungsi ```append()```.
+
+Contoh:
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM API Javascript</title>
+</head>
+
+<body>
+
+    <script>
+        // membuat element h1
+        var judul = document.createElement("h1");
+        
+        // mengisi kontent elemen
+        judul.textContent = "Belajar Javascript";
+
+        // menambahkan elemen ke dalam tag body
+        document.body.append(judul);
+    </script>
+
+</body>
+</html>
+```
+
+### Menghapus Elemen dengan DOM API
+
+Kalau tadi kita menggunakan fungsi ```append()``` untuk menambahkan elemen, maka untuk menghapusnya kita menggunakan fungsi ``remove()``.
+
+Berikut ini contohnya:
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM API Javascript</title>
+</head>
+
+<body>
+
+    <h2 id="judul2">Delete Saya!</h2>
+
+    <script>
+        // memilih elemen berdasarkan ID
+        var h2 = document.getElementById('judul2');
+
+        // menghapus elemen yang sudah dipilih
+        h2.remove();
+
+        console.log("Elemen sudah dihapus");
+        console.log(h2);
+    </script>
+
+</body>
+</html>
+```
+
+Elemen berhasil dihapus dari halaman web, namaun elemen masih berada di dalam memori.
+
+### Contoh Program yang Memanfaatkan DOM
+
+Kita sudah tahu cara mengakses elemen dengan DOM dan kita juga sudah paham cara menambahkan dan menghapus elemen.
+
+Biar pemahamannya semakin mantap, coba contoh program berikut:
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM API Javascript</title>
+</head>
+
+<body>
+
+    <h1>Aplikasi Ubah Warna</h1>
+    <label>Warna latar: </label>
+    <input type="color" id="bg-color" />
+    <br>
+    <label>Warna teks: </label>
+    <input type="color" id="text-color" />
+
+    <script>
+        var bgColor = document.getElementById('bg-color');
+        var txtColor = document.getElementById('text-color');
+
+        bgColor.addEventListener("change", (event) => {
+            document.body.style.backgroundColor = bgColor.value;
+        });
+
+        txtColor.addEventListener("change", (event) => {
+            document.body.style.color = txtColor.value;
+        });
+    </script>
+
+</body>
+</html>
+```
+
+Program ini berfungsi untuk mengubah warna latar belakang dari elemen ```<body>``` dan mengubah warna teksnya.
+
+Kita menggunakan event ```"change"``` pada elemen ```bgColor dan txtColor```. 
+Artinya nanti setiap nilai dari elemen ini berubah, kode di dalamnya akan dieksekusi.

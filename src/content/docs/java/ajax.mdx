@@ -1,0 +1,170 @@
+---
+title: AJAX
+description: linux dasar
+---
+
+
+###### AJAX merupakan singkatan dari *Asynchronous Javascript Aand XML*.
+
+AJAX berfungsi untuk:
+```
+    Mengambil data dari server secara background;
+    Update tampilan web tanpa harus relaod browser;
+    Mengirim data ke server secara background.
+```
+
+
+Pada dasarnya AJAX hanya menggunakan objek ```XMLHttpRequest``` untuk berkomunikasi dengan server.
+
+Kita bisa bisa melihat proses AJAX melalui ```inspect element``` di web browser, lalu buka tab ```Network``` dan aktifkan filter **```XHR (XML HTTP Request)```**.
+
+Beberapa format yg didukung **AJAX** adalah: **XML**,**JSON**,**Plain Text**,dan **HTML**.
+
+## Penggunaan AJAX
+
+#### 1 Membuat Objek AJAX
+
+```sh
+var xhr = new XMLHttpRequest();
+```
+
+#### 2 Menentukan Fungsi Handler untuk Event
+
+```sh
+xhr.onreadystatechange = function() { ... };
+xhr.onload = function() { ... };
+xhr.onerror = function() { ... };
+xhr.onprogress = function() { ... };
+```
+
+#### 3 Menentukan Method dan URL
+
+```sh
+xhr.open("GET", url, true);
+```
+
+#### 4 Mengirim Request
+
+```sh
+xhr.send();
+```
+
+# Lets Try !!!
+
+buat kode html
+
+```sh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Dasar Ajax</title>
+</head>
+<body>
+    <h1>Tutorial Ajax</h1>
+    <div id="hasil"></div>
+    <button onclick="loadContent()">Load Content</button>
+
+    <script>
+        function loadContent(){
+            var xhr = new XMLHttpRequest();
+            var url = "https://api.github.com/users/cidara-dev";
+            xhr.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("hasil").innerHTML = this.responseText;
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
+```
+
+hasilnya :
+
+:::tip[Output]
+
+```sh
+{
+  "login": "cidara-dev",
+  "id": 129306290,
+  "node_id": "U_kgDOB7UOsg",
+  "avatar_url": "https://avatars.githubusercontent.com/u/129306290?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/cidara-dev",
+  "html_url": "https://github.com/cidara-dev",
+  "followers_url": "https://api.github.com/users/cidara-dev/followers",
+  "following_url": "https://api.github.com/users/cidara-dev/following{/other_user}",
+  "gists_url": "https://api.github.com/users/cidara-dev/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/cidara-dev/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/cidara-dev/subscriptions",
+  "organizations_url": "https://api.github.com/users/cidara-dev/orgs",
+  "repos_url": "https://api.github.com/users/cidara-dev/repos",
+  "events_url": "https://api.github.com/users/cidara-dev/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/cidara-dev/received_events",
+  "type": "User",
+  "site_admin": false,
+  "name": null,
+  "company": null,
+  "blog": "",
+  "location": null,
+  "email": null,
+  "hireable": null,
+  "bio": null,
+  "twitter_username": null,
+  "public_repos": 4,
+  "public_gists": 0,
+  "followers": 0,
+  "following": 0,
+  "created_at": "2023-03-29T14:58:05Z",
+  "updated_at": "2023-10-09T11:30:08Z"
+}
+```
+:::
+
+Pada contoh di atas, kita mengambil data dari server Github dengan methode **```GET```**. 
+Lalu hasilnya langsung dimasukan ke dalam elemnt ```<div id="hasil">```.
+
+Event yang kita gunakan adalah ```onreadystatechange```, pada event ini kita bisa mengecek state dan status AJAX.
+
+```sh
+if(this.readyState == 4 && this.status == 200){
+    //...
+}
+```
+
+Kode state **4** artinya ```done``` dan status **200** artinya ```sukses```. Berikut ini daftar kode state AJAX.
+
+:::note
+```sh
+Kode   	State	            Keterangan
+0	    UNSENT	            Objek AJAX sudah dibuat tapi belum memanggil method open().
+1	    OPENED	            Method open() sudah dipanggil.
+2	    HEADERS_RECEIVED	  Method send() sudah dipanggil, dan di sini sudah tersedia header status.
+3	    LOADING	            Downloading; sedang mendownload data.
+4	    DONE	              Operasi AJAX selesai.
+```
+:::
+
+Sementara untuk status header ```200``` adalah status **HTTP Request**. 
+Biasanya kode di atas ``200`` artinya ***baik*** dan di bawah ``200`` artinya ***buruk***.
+
+Lalu coba perhatikan kode ini:
+
+```sh
+xhr.open("GET", url, true);
+```
+
+Terdapat tiga parameter yang kita berikan kepada method open():
+
+```sh
+GET     adalah metode request yang akan digunakan;
+url     adalah alamat URL tujuan;
+true    adalah untuk mengeksekusi AJAX secara asynchronous.
+```
+# buat kamu yang ingin lebih tahu tentang AJAX, [MONGGO](https://www.w3schools.com/xml/ajax_intro.asp)
+

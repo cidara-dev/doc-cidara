@@ -1,0 +1,72 @@
+---
+title: Event
+description: linux dasar
+---
+
+import Eventt from '/src/assets/images/event.png';
+import aadd from '/src/assets/images/add.png';
+
+Event adalah kejadian yang terjadi di halaman web.
+
+Kejadian yang dimaksud di sini seperti aktivitas yang dikerjakan pada halaman web.
+
+Misalnya seperti:
+
+   - User melakukan scroll;
+   - User melakukan klik pada elemen tertentu;
+   - Halaman web di-load;
+   - Form di-submit;
+   - dan sebagainya.
+
+Misalnya:
+
+Saat elemen ```<button>``` diklik, kita bisa jalankan fungsi untuk melakukan sesuatu.
+
+## Handle Event
+
+#### - Menggunakan Atribut
+
+:::note[event]
+<img src={Eventt.src} alt="css" />
+:::
+
+**```onclick```** adalah atribut HTML untuk menentukan aksi saat event klik pada sebuah elemen. 
+Atribut ini bisa diisi dengan nama fungsi atau ekspresi javascript.
+
+Selain event **```onclick```** ada juga event lainnya seperti **```onchange```**, **```onmouseover```**, **```onkeyup```**, **```onload```**, dll.
+
+Nama-nama atribut event ini tidak perlu kamu hapal, karena jumlahnya cukup banyak. Kalau lupa tinggal lihat saja referensi yang ada [disini](https://developer.mozilla.org/en-US/docs/Web/Events).
+
+#### - Method addEventListener()
+
+Method **```addEventListerner()```** merupakan method yang terdapat pada object [DOM](/java/dom/). 
+Object ini mewakili sebuah elemen HTML di Javascript.
+.
+
+:::note[addEventListerner()]
+<img src={aadd.src} alt="css" />
+:::
+
+#### Perhatikan, 
+
+penulisan nama event ditulis tanpa menggunakan ```on```. Jadi, misalnya kita ingin menghandle event klik, maka cukup tulis ```click``` saja.
+
+```sh
+// salah ❌
+button.addEventListener('onclick', function(e) {
+  
+});
+
+// benar ✅
+button.addEventListener('click', function(e){
+  
+});
+```
+Oooiyya, parameter ``e`` pada fungsi adalah parameter yang merupakan object event. 
+Jadi kita bisa mengambil data dari object yang mengirim event dari parameter ``e``. 
+Pada contoh ini, object pengirimnya adalah ``button``.
+
+
+
+Parameter ini bersifat opsional, boleh kita berikan, boleh juga tidak.
+

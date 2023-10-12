@@ -68,17 +68,13 @@ export default defineConfig({
 						{ label: 'Variable dan Tipe Data', link: '/java/variable/' },
 						{ label: 'Pencabangan', link: '/java/cabang/' },
 						{ label: 'Perulangan', link: '/java/ulang/' },
+						{ label: 'Struktur Data Array', link: '/java/data/' },
+						{ label: 'Function', link: '/java/fungsi/' },
+						{ label: 'Object', link: '/java/objek/' },
+						{ label: 'DOM', link: '/java/dom/' },
+						{ label: 'AJAX', link: '/java/ajax/' },
+						{ label: 'Event', link: '/java/event/' },
 					],
-
-				},
-				{					
-					label: 'Bootstrap',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Bootstrap', link: '/web/bootstrap/' },
-						{ label: 'Pre Requist', link: '/web/intro/' },
-					],
-
 				},
 
 				{					
