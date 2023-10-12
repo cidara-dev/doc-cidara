@@ -18,11 +18,11 @@ sudo (command)
 ```
 
 :::tip[Anda juga bisa menambahkan opsi, seperti:]
-
+```sh
 -k atau –reset-timestamp membatalkan file timestamp.
 -g atau –group=group menjalankan command sebagai nama atau ID grup tertentu.
 -h atau –host=host menjalankan command di host.
-
+```
 :::
 
 ## apt-get command
