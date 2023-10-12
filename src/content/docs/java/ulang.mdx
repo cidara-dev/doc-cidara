@@ -7,6 +7,8 @@ import foor from '/src/assets/images/for.webp';
 import fooor from '/src/assets/images/for.png';
 import whilee from '/src/assets/images/while.gif';
 import dowel from '/src/assets/images/do-while.png';
+import ripet from '/src/assets/images/repeat.png';
+import nesti from '/src/assets/images/nestedr.png';
 
 Apa yang akan kamu lakukan saat disuruh mencetak kalimat berulang-ulang?
 
@@ -224,3 +226,120 @@ Maka hasilnya:
 :::note[do-while]
 <img src={dowel.src} alt="css" />
 :::
+
+
+## 4. Perulangan Foreach di Javascript
+
+Perulangan ```foreach``` biasanya digunakan untuk mencetak item di dalam ```array```.
+
+Perulangan ini termasuk dalam perulangan ```counted loop```, karena jumlah perulangannya akan dituentukan oleh panjang dari ```array```.
+
+Ada dua cara menggunakan perulangan ```foreach``` di Javascript:
+```sh
+    Menggunakan for dengan operator in;
+    Mengguunakan method forEach().
+```
+
+Contoh:
+
+###### Berikut ini bentuk perulangan ```“foreach”``` tanpa menggunakan operator in:
+
+```sh
+var languages = ["Javascript", "HTML", "CSS", "Typescript"];
+
+for(i = 0; i < languages.length; i++){
+    document.write(i+". "+ languages[i] + "<br/>");
+}
+```
+
+Perulangan ini dapat dibuat lebih sederhana lagi dengan menggunakan operator in seperti ini:
+
+```sh
+var languages = ["Javascript", "HTML", "CSS", "Typescript"];
+
+for(i in languages){
+    document.write(i+". "+ languages[i] + "<br/>");
+}
+```
+
+###### Cara kedua membuat perulangan foreach ialah dengan menggunakan method ```forEach()``` dari array.
+
+Contoh:
+
+```sh
+// kita punya array seperti berikut
+var days = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
+
+// Kemudian kita tampilkan semua hari
+// dengan menggunakan method foreach
+days.forEach(function(day){
+    document.write("<p>" + day + "</p>");
+});
+```
+
+Method ```forEach()``` memiliki parameter berupa fungsi callback. Sebenarnya kita juga bisa menggunakan arrow function seperti ini:
+
+```sh
+// kita punya array seperti berikut
+var days = ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
+
+// Kemudian kita tampilkan semua hari
+// dengan menggunakan method foreach
+days.forEach((day) => {
+    document.write("<p>" + day + "</p>");
+});
+```
+
+## 5. Perulangan dengan Method repeat()
+
+Perulangan dengen method atau fungsi ```repeat()``` termasuk dalam perulangan ```counted loop```.
+
+Fungsi ini khusus digunakan untuk mengulang sebuah teks (string).
+
+Bisa dibilang:
+
+Ini merupakan singkat dari perulangan ```for```.
+
+Contoh:
+
+###### Apabila kita menggunakan perulangan for:
+
+```sh
+for( let i = 0; i < 100; i++){
+    document.write("Ulangi kalimat ini!");
+}
+```
+
+###### Apabila kita menggunakan fungsi ```repeat()```:
+
+```sh
+document.write("Ulangi kalimat ini! ".repeat(100));
+```
+
+:::note[repeat]
+<img src={ripet.src} alt="css" />
+:::
+
+## 6. Bonus: Perulangan Bersarang (Nested)
+
+Di dalam blok perulangan, kita juga dapat membuat perulangan.
+
+Ini disebut dengan nested loop atau perulangan bersarang atau perulangan di dalam perualangan.
+
+Mari kita coba lihat contohnya:
+
+```sh
+for(let i = 0; i < 10; i++){
+    for(let j = 0; j < 10; j++){
+        document.write("<p>Perulangan ke " + i + "," + j + "</p>");
+    }
+}
+```
+
+:::note[nested]
+<img src={nesti.src} alt="css" />
+:::
+
+Pada perulangan tersebut, kita menggunakan dua perulangan ```for```.
+
+Perulangan pertama menggunakan variabel ```i``` sebagai counter, sedangkan perultangan kedua menggunakan variabel ```j``` sebagai counter.
