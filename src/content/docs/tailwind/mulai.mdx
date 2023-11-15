@@ -1,0 +1,111 @@
+---
+title: Getting Started
+description: linux dasar
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+## Installation
+
+Cara tercepat untuk memulai instalasi Tailwindcss adalah melalu Tailwind CLI tool.
+
+
+
+### Install Tailwind CSS
+Buat dan buka sebuah folder project kalian.
+Buka terminal dan ketikkan perintah:
+
+<Tabs>
+<TabItem label="Terminal">
+
+```sh
+npm install -D tailwindcss
+```
+</TabItem>
+</Tabs>
+
+<Tabs>
+<TabItem label="Terminal">
+
+```sh
+npx tailwindcss init
+```
+</TabItem>
+</Tabs>
+
+#### secara otomatis akan dibuat sebuah file bernama ***tailwind.config.js*** ,lalu edit menggunakan VS Code menjadi:
+
+<Tabs>
+<TabItem label="tailwind.config.js">
+
+```sh
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+</TabItem>
+</Tabs>
+
+### Menambahkan Tailwind ke CSS tujuan
+buat sebuah folder bernama 'src',lalu buat file 'input.css' didalamnya.
+Tambahkan '@tailwind' ke 'input.css'
+
+<Tabs>
+<TabItem label="src/input.css">
+
+```sh
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+</TabItem>
+</Tabs>
+
+### Memulai Tailwind CLI Tool build
+
+di Terminal ketikkan:
+
+<Tabs>
+<TabItem label="Terminal">
+
+```sh
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+```
+</TabItem>
+</Tabs>
+
+secara otomatis akan ada folder bernama ```dist``` dan sebuah file ```output.css```
+
+### Memulai Tailwind di html
+Tambahkan file ```otput.css```  ke ```<head>``` di struktur html dasar,dan mulai gunakan utility Tailwind ke dalam Kontent HTML kalian
+
+<Tabs>
+<TabItem label="src/index.html">
+
+```sh
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-teal-200">
+        <h1 class="text-3xl text-violet-900 font-bold underline">
+            Hello world!
+        </h1>
+    </div>
+</body>
+</html>
+```
+</TabItem>
+</Tabs>
+
+Taraa..Kita berhasil menggunakan **Tailwind CSS** didalam struktur html.
