@@ -1,0 +1,74 @@
+---
+title: Getting Started
+description: linux dasar
+---
+
+import { Card, CardGrid } from "@astrojs/starlight/components";
+
+###### Flowbite is technically a plugin that can be included into any existing Tailwind CSS project. To get started, you first need to make sure that you have a working Tailwind CSS project installed and that you also have Node and NPM installed on your machine.
+
+### Require via NPM 
+
+##### Install the latest version of Flowbite using NPM:
+
+```sh
+npm install flowbite
+```
+
+##### Include Flowbite as a plugin inside the *tailwind.config.js* file:
+
+```sh
+module.exports = {
+
+    plugins: [
+        require('flowbite/plugin')
+    ]
+
+}
+```
+
+##### Additionally to your own content data you should add flowbite to apply the classes from the interactive elements in the *tailwind.config.js* file:
+```sh
+module.exports = {
+
+    content: [
+        "./node_modules/flowbite/**/*.js"
+    ]
+
+}
+```
+
+##### Require the JavaScript code that powers the interactive elements before the end of your ```<body>``` tag:
+```sh
+<script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+```
+
+### Include via CDN #
+
+If you want to quickly test out Flowbite you can easily include the following CSS and JavaScript files.
+
+Require the following minified stylesheet inside the ```<head>``` tag:
+```sh
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css"  rel="stylesheet" />
+```
+And include the following javascript file before the end of the ```<body>``` element:
+```sh
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+```
+
+###### *Please remember that the best way to work with Tailwind CSS and Flowbite is by purging the CSS classes.*
+
+### Bundled JavaScript #
+
+One of the most popular way of using Flowbite is to include the bundled Javascript file which is UMD ready using a bundler such as Webpack or Parcel which makes sure that all of the data attributes and functionality will work out-of-the-box.
+
+You can directly import the main JavaScript file inside your bundled ***app-bundle.js*** file like this:
+```sh
+import 'flowbite';
+```
+
+
+
+
+
+

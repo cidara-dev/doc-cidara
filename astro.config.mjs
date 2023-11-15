@@ -56,6 +56,18 @@ export default defineConfig({
           ],
         },
         {
+          label: "Bootstrap",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: "Intro", link: "/bootstrap/intro/" },
+            { label: "Start", link: "/bootstrap/mulai/" },
+            { label: "Grid", link: "/bootstrap/grid/" },
+            { label: "Warna dan Background", link: "/bootstrap/warna/" },
+            { label: "Teks Formatting", link: "/bootstrap/teks/" },
+            { label: "Selengkapnya", link: "/bootstrap/lengkap/" },
+          ],
+        },
+        {
           label: "Java Script",
           items: [
             // Each item here is one entry in the navigation menu.
@@ -90,6 +102,15 @@ export default defineConfig({
             // Each item here is one entry in the navigation menu.
             { label: "Intro", link: "/tailwind/intro/" },
             { label: "Getting Started", link: "/tailwind/mulai/" },
+          ],
+        },
+
+        {
+          label: "Flowbit JS",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: "Intro", link: "/flowbit/intro/" },
+            { label: "Getting Started", link: "/flowbit/mulai/" },
           ],
         },
 
