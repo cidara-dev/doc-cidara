@@ -8,7 +8,7 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 ## Buat Blog Astro pertama Anda
 
-Dalam tutorial ini, Anda akan mempelajari fitur-fitur utama Astro dengan membangun blog yang berfungsi penuh, dari nol hingga peluncuran penuh! 🚀
+Dalam tutorial ini, Anda akan mempelajari fitur-fitur utama Astro dengan membangun blog yang berfungsi penuh, dari nol hingga peluncuran! 🚀
 
 :::tip[Sepanjang prosesnya, Anda akan:]
 
@@ -115,6 +115,109 @@ Ketik editor untuk mengubah teks judul di halaman Anda dan simpan perubahannya
 Selamat! Anda sekarang adalah pengembang Astro!
 
 Sisa dari unit ini akan menyiapkan Anda untuk sukses dengan kontrol versi dan situs web terbitan yang dapat Anda pamerkan.
+
+## Menambahkan dependensi
+
+Anda dapat menambahkan dependensi lain di Astro,misalkan ***alpinejs*** ,***react*** ,***Vue*** ,***svelte*** ,dan lainya.
+
+### Install
+
+Misalkan kita akan menambahkan *alpinejs* ke project,anda dpt mengetikkan perintah di terminal:
+
+<Tabs>
+<TabItem label="npm">
+
+```sh
+npx astro add alpinejs
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm astro add alpinejs
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn astro add alpinejs
+```
+
+</TabItem>
+</Tabs>
+
+jika mendapat masalah dengan cara ini,anda dpt melakukanya dengan manual install
+
+### Manual Install
+
+Pertama,install ***@astrojs/alpinejs***
+
+<Tabs>
+<TabItem label="npm">
+
+```sh
+npm install @astrojs/alpinejs
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm add @astrojs/alpinejs
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn add @astrojs/alpinejs
+```
+
+</TabItem>
+</Tabs>
+
+###### Jika anda menemukan keterangan  ***Cannot find package ‘alpinejs’***,Anda harus melakukan:
+
+<Tabs>
+<TabItem label="npm">
+
+```sh
+npm install alpinejs @types/alpinejs
+```
+
+</TabItem>
+<TabItem label="pnpm">
+
+```sh
+pnpm add alpinejs @types/alpinejs
+```
+
+</TabItem>
+<TabItem label="Yarn">
+
+```sh
+yarn add alpinejs @types/alpinejs
+```
+
+</TabItem>
+</Tabs>
+
+Lalu,Terapkan pengaturan ke file *astro.config.** menggunakan properti *integrations*
+
+<Tabs label="astro.config.*">
+```sh
+import { defineConfig } from 'astro/config';
+import alpine from '@astrojs/alpinejs';
+
+export default defineConfig({
+  // ...
+  integrations: [alpine()],
+});
+```
+</Tabs>
+
 
 ## Simpan repositori Anda secara online
 

@@ -102,6 +102,7 @@ export default defineConfig({
             // Each item here is one entry in the navigation menu.
             { label: "Intro", link: "/tailwind/intro/" },
             { label: "Getting Started", link: "/tailwind/mulai/" },
+            { label: "Template Tailwind", link: "/tailwind/template/" },
           ],
         },
 

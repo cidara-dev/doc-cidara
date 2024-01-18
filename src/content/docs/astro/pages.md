@@ -1,5 +1,5 @@
 ---
-title: Unit 2 ⁠-⁠ Pages
+title: Tutorial Astro
 description: linux dasar
 ---
 
