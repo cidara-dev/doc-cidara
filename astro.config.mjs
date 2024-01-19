@@ -17,7 +17,8 @@ export default defineConfig({
             // Each item here is one entry in the navigation menu.
             { label: "Index", link: "/intro/linux-tutorial/" },
             { label: "Perintah Dasar", link: "/intro/basic/" },
-            { label: "Web Server Lokal", link: "/intro/web-server/" },
+            { label: "Web Server on Linux", link: "/intro/web-server/" },
+            { label: "Web Server on Windows", link: "/intro/web-server-windows/" },
             { label: "SSH", link: "/intro/ssh/" },
           ],
         },

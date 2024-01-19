@@ -1,9 +1,20 @@
-# Starlight Starter Kit: Tailwind
+
 
 ```
-gh repo clone sdldev/documentation
-cd documentation
-yarn install
+git clone https://github.com/cidara-dev/doc-cidara.git
+
+```
+
+```
+cd doc-cidara
+```
+
+```
+npm install
+```
+
+```
+npm run dev
 ```
 
 All commands are run from the root of the project, from a terminal:
@@ -19,4 +30,4 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build)
+Check out and read [the Astro documentation](https://docs.astro.build)

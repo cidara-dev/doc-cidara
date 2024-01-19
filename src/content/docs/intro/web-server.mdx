@@ -1,5 +1,5 @@
 ---
-title: Install Web Server lokal
+title: Install Web Server di Linux
 description: Build Web Server Development
 ---
 
@@ -79,7 +79,7 @@ Check the status again to confirm.
 
 ## Step 2 - Install PHP
 
-Debian 12 ships with PHP 8.2 by default. You can install it by running the following command.
+Debian 12/ Ubuntu 22.04 ships with PHP 8.3 by default. You can install it by running the following command.
 
 ```sh
 apt-get install ca-certificates apt-transport-https software-properties-common curl lsb-release -y
@@ -137,6 +137,12 @@ apt install php7.0-{zip,xml,pdo,mysqli,mysqlnd,mcrypt,mbstring,json,ldap,bcmath,
     Copyright (c) The PHP Group
     Zend Engine v4.2.7, Copyright (c) Zend Technologies
     with Zend OPcache v8.2.7, Copyright (c), by Zend Technologies
+```
+### Change PHP Version on your machine
+For change version of your PHP,enter Command on your Terminal (Ex: change to php7.4)
+
+```sh
+update-alternatives --set php /usr/bin/php7.4 
 ```
 
 ## Step 3 - Install MariaDB
@@ -231,7 +237,7 @@ Next, you will be asked certain questions to improve MariaDB security. Type Y to
 
     Thanks for using MariaDB!
 ```
-
+:::
 
 ###### You can enter the MariaDB shell by typing sudo mysql or sudo mariadb on the command line.
 
@@ -254,7 +260,7 @@ Create an SQL user account.
 
 Grant all privileges on the database to the user.
 ```sh
-    MariaDB> GRANT ALL PRIVILEGES ON exampledb.\* TO 'exampleuser'@'localhost';
+    MariaDB> GRANT ALL PRIVILEGES ON *.* TO 'exampleuser'@'localhost';
 ```
 
 Since we are not modifying the root user, you should create another SQL user for performing administrative tasks which employ password authentication. Choose a strong password for this one.
@@ -311,7 +317,6 @@ Exit the MySQL shell.
 ```sh
     MariaDB> exit
 ```
-
 ## Step 5 - Install Nginx
 
 Debian 12 ships with an older version of Nginx. To install the latest version, you need to download the official Nginx repository.
@@ -429,59 +434,74 @@ Configure PHP's memory limit depending on your server resources and requirements
 
 ##### Download phpMyAdmin's archive file for the English language. Grab the link for the latest version from the phpMyAdmin Download page.
 ```sh
-    $ wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.tar.gz
+    $ sudo wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-5.2.1-english.tar.gz
 ```
-##### Create a public directory for the site.
+##### Download Keyring
 ```sh
-    $ sudo mkdir /var/www/html/example.com -p
+    $ sudo wget -P Downloads https://files.phpmyadmin.net/phpmyadmin.keyring
+```
+##### Mount Folder Downloads
+```sh
+cd Downloads
+```
+##### Import keyring
+```sh
+    gpg --import phpmyadmin.keyring
+```
+
+```sh
+    $ sudo wget https://www.phpmyadmin.net/downloads/phpMyAdmin-5.2.1-english.tar.gz.asc
+    $ sudo gpg --verify phpMyAdmin-latest-all-languages.tar.gz.asc
+```
+
+##### Create a directory for the site.
+```sh
+    $ sudo mkdir /var/www/html/phpMyAdmin
 ```
 
 ##### Extract the archive to the public directory.
 ```sh
-    $ sudo tar -xzf phpMyAdmin-5.2.1-english.tar.gz -C /var/www/html/example.com
+    $ sudo tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/html/phpMyAdmin
 ```
 
-##### Switch to the public directory.
+##### Copy config file
 ```sh
-    $ cd /var/www/html/example.com
+    $ sudo cp /var/www/html/phpMyAdmin/config.sample.inc.php /var/www/html/phpMyAdmin/config.inc.php
 ```
 
-##### Rename the extracted directory to something obscure to improve security.
+##### Edit config.ini.php
+
 ```sh
-    $ sudo mv phpMyAdmin-5.2.1-english sm175
+    $ sudo nano /var/www/html/phpMyAdmin/config.inc.php
 ```
+find
 
-## Step 8 - Configure phpMyAdmin
+ ***$cfg['blowfish_secret'] = '';*** ---> change inside **''** with youre secure password,
+ 
+ then press ***ctrl+x***, ***y*** , ***enter***   
 
-##### Copy the sample configuration file.
+##### Chane Permission
+
 ```sh
-    $ sudo cp sm175/config.sample.inc.php sm175/config.inc.php
+$ sudo chmod 660 /var/www/html/phpMyAdmin/config.inc.php
+$ sudo chown -R www-data:www-data /var/www/html/phpMyAdmin
 ```
 
-##### Open the configuration file for editing.
+##### Restart web server
+
+Apache:
+
 ```sh
-    $ sudo nano sm175/config.inc.php
+$ sudo systemctl restart apache2
 ```
 
-##### Find the line $cfg['blowfish_secret'] = ''; and enter a 32-character random string for cookie-based authentication.
+Nginx:
 
-You can use phpSolved's online blowfish generator or do it via the command line.
-
-Copy the value and paste it as shown.
 ```sh
-    $cfg['blowfish_secret'] = 'Tc/HfLPBOAPxJ-rhQP}HJoZEK69c3j:m';
+$ sudo systemctl restart nginx
 ```
-##### Save the file by pressing Ctrl + X and entering Y when prompted.
+##### Then you can enter in your web Browser like Chrome ***http://localhost/phpMyAdmin***
 
-##### Change the ownership of the site and phpMyAdmin to the Nginx server.
-```sh
-    $ sudo chown -R nginx:nginx /var/www/html/example.com
-```
-
-##### Delete the phpMyAdmin setup directory.
-```sh
-    $ sudo rm -rf /var/www/html/example.com/sm175/setup
-```
 
 ## Step 9 - Configure Opcache
 
