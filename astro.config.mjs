@@ -127,6 +127,6 @@ export default defineConfig({
       ],
       customCss: ["./src/tailwind.css"],
     }),
-    tailwind({ applyBaseStyles: false }),
+    tailwind({ applyBaseStyles: true }),
   ],
 });
