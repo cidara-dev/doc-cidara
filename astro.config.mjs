@@ -20,7 +20,6 @@ export default defineConfig({
             { label: "Web Server on Linux", link: "/intro/web-server/" },
             { label: "Web Server on Windows", link: "/intro/web-server-windows/" },
             { label: "SSH", link: "/intro/ssh/" },
-            { label: "Troubleshooting", link: "/intro/troubleshooting/" },
           ],
         },
         {
@@ -32,7 +31,6 @@ export default defineConfig({
             { label: "NVM", link: "/utility/nvm/" },
             { label: "VS Code", link: "/utility/vsc/" },
             { label: "Git Dasar", link: "/utility/git/" },
-            { label: "Troubleshooting", link: "/utility/troubleshooting/" },
           ],
         },
         {
@@ -124,6 +122,13 @@ export default defineConfig({
             // Each item here is one entry in the navigation menu.
             { label: "Backup DB", link: "/server/backup/" },
             { label: "Setting Website", link: "/server/web/" },
+          ],
+        },
+        {
+          label: "Troubleshooting",
+          items: [
+            // Each item here is one entry in the navigation menu.
+            { label: "Eror dan Solusi", link: "/troubleshooting/troubleshoot" },
           ],
         },
       ],
