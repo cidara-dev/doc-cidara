@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
+
 export default defineConfig({
   integrations: [
     starlight({
@@ -20,6 +20,7 @@ export default defineConfig({
             { label: "Web Server on Linux", link: "/intro/web-server/" },
             { label: "Web Server on Windows", link: "/intro/web-server-windows/" },
             { label: "SSH", link: "/intro/ssh/" },
+            { label: "Troubleshooting", link: "/intro/troubleshooting/" },
           ],
         },
         {
@@ -31,6 +32,7 @@ export default defineConfig({
             { label: "NVM", link: "/utility/nvm/" },
             { label: "VS Code", link: "/utility/vsc/" },
             { label: "Git Dasar", link: "/utility/git/" },
+            { label: "Troubleshooting", link: "/utility/troubleshooting/" },
           ],
         },
         {

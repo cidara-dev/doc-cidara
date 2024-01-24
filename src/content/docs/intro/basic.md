@@ -1,7 +1,6 @@
 ---
 title: Perintah Dasar Linux
 description: Perintah Dasar Linux
-tableOfContents: false
 ---
 
 ## sudo command

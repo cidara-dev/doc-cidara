@@ -1,6 +1,6 @@
 ---
-title: Tutorial Astro
-description: linux dasar
+title: Astro with Tailwind
+description: Astro Tutorial
 ---
 
 #### Silahkan kunjungi Tutorial lengkap tentang Astro [disini](/reference/astro)

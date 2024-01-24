@@ -1,0 +1,27 @@
+---
+title: Linux Trubleshooting
+description: Linux Trubleshooting
+---
+
+
+import trouble1 from '/src/assets/images/trouble1.png';
+import trouble2 from '/src/assets/images/trouble2.png';
+
+
+### - sudo apt upgrade
+
+:::note[sudo apt --upgradable]
+<img src={trouble1.src} alt="trouble1" />
+:::
+
+solusi:
+
+```sh
+sudo apt upgrade base-file -y
+```
+
+###### *untuk masalah sejenis,perhatikan nama file yg dilingkari warna merah*
+
+:::note[sudo apt upgrade]
+<img src={trouble2.src} alt="trouble2" />
+:::
