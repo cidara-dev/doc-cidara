@@ -12,14 +12,14 @@ export default defineConfig({
       },
       sidebar: [
         {
-          label: "Intro",
+          label: "All About Linux",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "Index", link: "/intro/linux-tutorial/" },
-            { label: "Perintah Dasar", link: "/intro/basic/" },
-            { label: "Web Server on Linux", link: "/intro/web-server/" },
-            { label: "Web Server on Windows", link: "/intro/web-server-windows/" },
-            { label: "SSH", link: "/intro/ssh/" },
+            { label: "Index", link: "/linux/linux-tutorial/" },
+            { label: "Perintah Dasar", link: "/linux/basic/" },
+            { label: "Web Server on Linux", link: "/linux/web-server/" },
+            { label: "Web Server on Windows", link: "/linux/web-server-windows/" },
+            { label: "SSH", link: "/linux/ssh/" },
           ],
         },
         {
