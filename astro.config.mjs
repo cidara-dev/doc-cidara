@@ -92,6 +92,7 @@ export default defineConfig({
             { label: "Intro", link: "astro/intro/" },
             { label: "Getting Started", link: "/astro/mulai/" },
             { label: "Tutorial", link: "/astro/project/" },
+            { label: "Integration", link: "/astro/integration/" },
             { label: "Check in", link: "/astro/pages/" },
             { label: "Starlight", link: "/astro/starlight/" },
           ],
