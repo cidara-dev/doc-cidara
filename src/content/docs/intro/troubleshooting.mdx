@@ -5,10 +5,12 @@ description: Linux Trubleshooting
 
 
 import trouble1 from '/src/assets/images/trouble1.png';
-import trouble2 from '/src/assets/images/trouble2.png';
+import trouble3 from '/src/assets/images/trouble3.png';
 
 
 ### - sudo apt upgrade
+
+#### trouble 1
 
 :::note[sudo apt --upgradable]
 <img src={trouble1.src} alt="trouble1" />
@@ -21,3 +23,22 @@ sudo apt upgrade base-file -y
 ```
 
 ###### *untuk masalah sejenis,perhatikan nama file yg dilingkari warna merah*
+
+
+#### trouble 2
+
+:::note[sudo apt --upgradable]
+<img src={trouble3.src} alt="trouble" />
+:::
+
+masalah ini biasanya disebabkan oleh eror autentikasi akun github,untuk mengatasinya lakukan log-out lalu login ulang
+
+```sh 
+gh auth logout
+```
+
+setelah berhasil,login ulang ke akun github
+
+```sh
+gh auth login
+```
