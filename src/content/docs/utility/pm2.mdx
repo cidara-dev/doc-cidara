@@ -15,16 +15,14 @@ import pm2 from '/src/assets/images/pm2.png';
 <TabItem label="npm">
 
 ```sh
-# install pm2 with npm
-$ npm install pm2@latest -g
+ npm install pm2@latest -g
 ```
 
 </TabItem>
 <TabItem label="Yarn">
 
 ```sh
-# install pm2 with yarn
-$ yarn global add pm2
+ yarn global add pm2
 ```
 
 </TabItem>
@@ -38,15 +36,15 @@ The simplest way to start, daemonize and monitor
 your application is by using this command line:
 
 ```sh
-$ pm2 start app.js
+ pm2 start app.js
 ```
 
 ###### Or start any other application easily:
 
 ```sh
-$ pm2 start bashscript.sh
-$ pm2 start python-app.py --watch
-$ pm2 start binary-file -- --port 1520
+ pm2 start bashscript.sh
+ pm2 start python-app.py --watch
+ pm2 start binary-file -- --port 1520
 ```
 
 :::tip[Some options you can pass to the CLI:]
@@ -91,10 +89,10 @@ $ pm2 start binary-file -- --port 1520
 Managing application state is simple here are the commands:
 
 ```sh
-$ pm2 restart app_name
-$ pm2 reload app_name
-$ pm2 stop app_name
-$ pm2 delete app_name
+ pm2 restart app_name
+ pm2 reload app_name
+ pm2 stop app_name
+ pm2 delete app_name
 ```
 
 Instead of ***app_name*** you can pass:
@@ -109,14 +107,14 @@ Now that you have started this application, you can check its status, logs, metr
 List the status of all application managed by PM2:
 
 ```sh
-$ pm2 [list|ls|status]
+ pm2 [list|ls|status]
 ```
 #### Terminal Based Dashboard
 
 Here is a realtime dashboard that fits directly into your terminal:
 
 ```sh
-$ pm2 monit
+ pm2 monit
 ```
 :::note[Output]
 <img src={pm2.src} alt="pm2" />

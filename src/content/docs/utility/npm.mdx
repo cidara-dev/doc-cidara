@@ -12,13 +12,13 @@ Dalam pengembangan aplikasi, kita tidak akan lepas dari package atau library. Pa
 Metode pertama dan termudah untuk menginstal paket di Debian 12 adalah dengan menggunakan repositori defaultnya. Untuk menginstal ***Node.js*** dan ***NPM***, jalankan perintah ini:
 
 ```sh
-    $ sudo apt install nodejs npm -y
+     sudo apt install nodejs npm -y
 ```
 
 Pada perintah di atas, kedua paket “ **nodejs** ” dan “ **npm** ” diinstal yang dapat diverifikasi dengan menggunakan perintah:
 
 ```sh
-    $ nodejs --version && npm --version
+     nodejs --version && npm --version
 ```
 
 ##### Instal Node.js Menggunakan Repositori Sumber Node
@@ -26,13 +26,13 @@ Pada perintah di atas, kedua paket “ **nodejs** ” dan “ **npm** ” diinst
 Cara lain dari Node.js adalah dengan mendownload paket terbaru dari website GitHub menggunakan perintah:
 
 ```sh
-    $ sudo curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt install nodejs -y
+     sudo curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt install nodejs -y
 ```
 
 Tampilkan versi Nodejs yang diinstal untuk mengonfirmasi eksekusi perintah di atas:
 
 ```sh
-    $ node --version
+     node --version
 ```
 
 ##### Instal Node.js Menggunakan NVM
@@ -40,7 +40,7 @@ Tampilkan versi Nodejs yang diinstal untuk mengonfirmasi eksekusi perintah di at
 NVM adalah skrip bash yang memungkinkan pengguna mengelola berbagai versi Node.js. Kloning repositori NVM dengan menjalankan perintah:
 
 ```sh
-    $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 ```
 
 Perintah yang dijalankan di atas akan mengkloning repositori NVM dari GitHub ke direktori **~/.nvm** di Debian 12.
@@ -48,23 +48,23 @@ Perintah yang dijalankan di atas akan mengkloning repositori NVM dari GitHub ke 
 Untuk menginstal versi terbaru dari sebuah node menggunakan NVM, jalankan perintah:
 
 ```sh
-    $ nvm install node
+     nvm install node
 ```
 
 Untuk menginstal Node versi LTS di NVM, gunakan perintah:
 
 ```sh
-    $ nvm install --lts
+     nvm install --lts
 ```
 
 Untuk membuat daftar versi Node.js yang terinstal di Debian 12 menggunakan NVM:
 
 ```sh
-    $ nvm ls
+     nvm ls
 ```
 
 Untuk beralih ke versi NVM lain, gunakan perintah:
 
 ```sh
-    $ nvm use 20.4.0
+     nvm use 20.4.0
 ```

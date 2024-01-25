@@ -251,14 +251,13 @@ Zend Engine v4.3.2, Copyright (c) Zend Technologies
 Debian 12 does not ship with MySQL by default and they haven't released an official package for it yet. Therefore, we will be using MariaDB for it. MariaDB doesn't have an official package for Debian 12 as well but Debian ships with it. Therefore, install it using the following command.
 
 ```sh
-sudo apt install mariadb-server
+sudo apt install mariadb-server -y
 ```
 
 Check the version of MySQL.
 
 ```sh
 mysql --version
-mysql Ver 15.1 Distrib 10.11.3-MariaDB, for debian-linux-gnu (x86_64) using EditLine wrapper
 ```
 
 Run the MariaDB secure install script.
@@ -352,49 +351,13 @@ Next, you will be asked certain questions to improve MariaDB security. Type Y to
 Log in to the MariaDB shell.
 
 ```sh
-     sudo mysql
+     sudo mysql -u root -p
 ```
 
 Create a sample database.
 
 ```sh
     MariaDB> CREATE DATABASE exampledb;
-```
-
-Create an SQL user account.
-
-```sh
-    MariaDB> CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'YourPassword2!';
-```
-
-Grant all privileges on the database to the user.
-
-```sh
-    MariaDB> GRANT ALL PRIVILEGES ON *.* TO 'exampleuser'@'localhost';
-```
-
-Since we are not modifying the root user, you should create another SQL user for performing administrative tasks which employ password authentication. Choose a strong password for this one.
-
-```sh
-    MariaDB> GRANT ALL ON _._ TO 'navjot'@'localhost' IDENTIFIED BY 'Yourpassword32!' WITH GRANT OPTION;
-```
-
-Flush user privileges.
-
-```sh
-    MariaDB> FLUSH PRIVILEGES;
-```
-
-Exit the shell.
-
-```sh
-    MariaDB> exit
-```
-
-Let us log in again to the MySQL shell using the newly created user.
-
-```sh
-     sudo mysql -u exampleuser -p
 ```
 
 Create a test table.
@@ -541,7 +504,7 @@ Configure PHP's memory limit depending on your server resources and requirements
 ##### Download phpMyAdmin's archive file for the English language. Grab the link for the latest version from the phpMyAdmin Download page.
 
 ```sh
-wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+sudo wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
 ```
 
 ##### Download Keyring
@@ -559,7 +522,7 @@ cd Downloads
 ##### Import keyring
 
 ```sh
-gpg --import phpmyadmin.keyring
+sudo gpg --import phpmyadmin.keyring
 ```
 
 ```sh
