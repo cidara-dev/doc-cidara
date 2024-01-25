@@ -20,13 +20,14 @@ export default defineConfig({
             { label: "Web Server on Linux", link: "/linux/web-server/" },
             { label: "Web Server on Windows", link: "/linux/web-server-windows/" },
             { label: "SSH", link: "/linux/ssh/" },
+            { label: "Development", link: "/linux/dev/" },
           ],
         },
         {
           label: "Utility Penting",
           items: [
             // Each item here is one entry in the navigation menu.
-            { label: "NPM dan Node", link: "/utility/npm/" },
+            { label: "Nodejs dan Npm", link: "/utility/npm/" },
             { label: "pm2", link: "/utility/pm2/" },
             { label: "NVM", link: "/utility/nvm/" },
             { label: "VS Code", link: "/utility/vsc/" },

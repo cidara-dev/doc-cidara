@@ -1,0 +1,84 @@
+---
+title: All About Development
+description: Dev Application for Linux
+---
+
+Beberapa Hal yg menurut penulis penting untuk dilakukan oleh developer setelah install OS Linux di Komputer.Belajar dari pengalaman ya Kakak ...CMIIW
+
+### update dan upgrade system
+
+```sh 
+sudo apt update && sudo apt upgrade -y
+```
+
+### install web server
+
+untuk menginstall web server anda dapat klik [link ini](https://doc.cidara.my.id/linux/web-server/)
+
+### install Nodejs dan npm
+
+untuk menginstall Nodejs dan npm,agan dapat klik [Link ini](https://doc.cidara.my.id/utility/npm/)
+
+### install Browser dan ekstensinya
+
+dalam hal Browser,inyong menyarankan Chromium
+
+##### install chromium lewat terminal
+
+```sh 
+sudo apt install chromium
+```
+
+jika muncul
+
+```
+cidara@cidara-MS-7A38:~$ sudo apt install chromium
+[sudo] password for cidara: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package chromium is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+However the following packages replace it:
+  chromium-bsu
+
+E: Package 'chromium' has no installation candidate
+```
+
+ketikkan:
+```sh 
+sudo apt install chromium-bsu
+```
+
+
+#### Selain Chromium,anda juga bisa menggunanakn Microsoft Edge
+
+##### install Microsoft Edge lewat terminal
+
+```sh
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+
+```sh
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+```sh
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" > /etc/apt/sources.list.d/microsoft-edge-dev.list'
+```
+
+```sh
+sudo rm microsoft.gpg
+```
+
+```sh
+sudo apt update && sudo apt install microsoft-edge-stable
+```
+
+#### untuk ekstensi,salahsatu yg berguna adalah ```mobile simulator```
+
+##### bisa didownload di [SANA](https://chromewebstore.google.com/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk)
+
+
+to be continued.......

@@ -22,13 +22,13 @@ The Uncomplicated Firewall(UFW) is enabled and running.
 Everything is updated.
 
 ```sh
-     sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade
 ```
 
 Few packages that your system needs.
 
 ```sh
-     sudo apt install wget curl nano ufw software-properties-common dirmngr apt-transport-https gnupg2 ca-certificates lsb-release debian-archive-keyring unzip -y
+sudo apt install wget curl nano ufw software-properties-common dirmngr apt-transport-https gnupg2 ca-certificates lsb-release debian-archive-keyring unzip -y
 ```
 
 Some of these packages may already be installed on your system.
@@ -40,33 +40,39 @@ The first step before installing any packages is to configure the firewall to al
 Check the status of the firewall.
 
 ```sh
-     sudo ufw status
+sudo ufw status
 ```
 
 You should see something like the following.
 
-:::tip[Output]
-
-```sh
+```
     Status: active
 
     To                         Action      From
     --                         ------      ----
     OpenSSH                    ALLOW       Anywhere
     OpenSSH (v6)               ALLOW       Anywhere (v6)
+```
 
 Allow HTTP and HTTPs ports.
 
-     sudo ufw allow http
-     sudo ufw allow https
+```sh
+sudo ufw allow http
 ```
 
-:::
+```sh
+sudo ufw allow https
+```
 
 Check the status again to confirm.
 
 ```sh
-     sudo ufw status
+sudo ufw status
+```
+
+Output:
+
+```
     Status: active
 
     To Action From
@@ -90,34 +96,36 @@ Debian 12 ships with an older version of Nginx. To install the latest version, y
 Import Nginx's signing key.
 
 ```sh
-     curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
-    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \ | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 ```
 
 Add the repository for Nginx's stable version.
 
 ```sh
-     echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
-    http://nginx.org/packages/debian `lsb_release -cs` nginx" \
-    | sudo tee /etc/apt/sources.list.d/nginx.list
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \ http://nginx.org/packages/debian `lsb_release -cs` nginx" \ | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
 Update the system repositories.
 
 ```sh
-     sudo apt update
+sudo apt update
 ```
 
 Install Nginx.
 
 ```sh
-     sudo apt install nginx
+sudo apt install nginx
 ```
 
 Verify the installation. On Debian systems, the following command will only work with sudo.
 
 ```sh
-     sudo nginx -v
+sudo nginx -v
+```
+
+Output:
+
+```
     nginx version: nginx/1.24.0
 ```
 
@@ -130,8 +138,11 @@ Start Nginx.
 Check the service status.
 
 ```sh
-     sudo systemctl status nginx
-    ? nginx.service - nginx - high performance web server
+sudo systemctl status nginx
+```
+Output:
+```
+    nginx.service - nginx - high performance web server
     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
     Active: active (running) since Thu 2023-06-15 16:33:46 UTC; 1s ago
     Docs: https://nginx.org/en/docs/
@@ -155,6 +166,37 @@ sudo apt update
 sudo apt install apache2
 ```
 
+Check the service status.
+
+```sh
+sudo systemctl status apache2
+```
+
+Output
+
+```
+apache2.service - The Apache HTTP Server
+     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor prese>
+     Active: active (running) since Thu 2024-01-25 15:37:08 WIB; 5h 16min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+    Process: 920 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUC>
+   Main PID: 1067 (apache2)
+      Tasks: 7 (limit: 16536)
+     Memory: 35.8M
+        CPU: 638ms
+     CGroup: /system.slice/apache2.service
+             ├─1067 /usr/sbin/apache2 -k start
+             ├─1071 /usr/sbin/apache2 -k start
+             ├─1072 /usr/sbin/apache2 -k start
+             ├─1073 /usr/sbin/apache2 -k start
+             ├─1074 /usr/sbin/apache2 -k start
+             ├─1075 /usr/sbin/apache2 -k start
+             └─7902 /usr/sbin/apache2 -k start
+
+Jan 25 15:37:08 cidara-MS-7A38 systemd[1]: Starting The Apache HTTP Server...
+Jan 25 15:37:08 cidara-MS-7A38 apachectl[953]: AH00558: apache2: Could not reli>
+Jan 25 15:37:08 cidara-MS-7A38 systemd[1]: Started The Apache HTTP Server.
+```
 ## Step 3 - Install PHP
 
 Debian 12/ Ubuntu 22.04 ships with PHP 8.3 by default. You can install it by running the following command.
@@ -351,31 +393,37 @@ Next, you will be asked certain questions to improve MariaDB security. Type Y to
 Log in to the MariaDB shell.
 
 ```sh
-     sudo mysql -u root -p
+sudo mysql -u root -p
 ```
 
 Create a sample database.
 
 ```sh
-    MariaDB> CREATE DATABASE exampledb;
+CREATE DATABASE exampledb;
+```
+
+show database
+
+```sh
+show databases;
 ```
 
 Create a test table.
 
 ```sh
-    MariaDB> CREATE TABLE exampledb.name_list ( sno INT AUTO_INCREMENT, content VARCHAR(255), PRIMARY KEY(sno) );
+CREATE TABLE exampledb.name_list ( sno INT AUTO_INCREMENT, content VARCHAR(255), PRIMARY KEY(sno) );
 ```
 
 Insert test data.
 
 ```sh
-    MariaDB> INSERT INTO exampledb.name_list (content) VALUES ("Navjot");
+INSERT INTO exampledb.name_list (content) VALUES ("Navjot");
 ```
 
 Repeat the above command multiple times to add more entries. Run the following command to check the contents of the table.
 
 ```sh
-    MariaDB> SELECT \* FROM exampledb.name_list;
+SELECT \* FROM exampledb.name_list;
 ```
 
 You will receive the following output.
@@ -398,31 +446,36 @@ You will receive the following output.
 Exit the MySQL shell.
 
 ```sh
-    MariaDB> exit
+exit
 ```
+
 ### ADD USER MariaDB
- Open your Terminal and type:
+
+Open your Terminal and type:
 
 ```sh
 mysql -u root -p
 ```
-input your root password (press ```ENTER``` if you not configure it)
+
+input your root password (press `ENTER` if you not configure it)
 
 Then
 
-```sh 
+```sh
 CREATE USER 'user1'@localhost IDENTIFIED BY 'password1';
 ```
-###### Change ```'user1'``` on ```'user1'@localhost``` with your user name
-###### Change ```'password1'``` with your secure password
+
+###### Change `'user1'` on `'user1'@localhost` with your user name
+
+###### Change `'password1'` with your secure password
 
 ```sh
 GRANT ALL PRIVILEGES ON *.* TO 'user1'@localhost IDENTIFIED BY 'password1';
 ```
 
-###### Change ```'user1'``` on ```'user1'@localhost``` with your user name
-###### Change ```'password1'``` with your secure password
+###### Change `'user1'` on `'user1'@localhost` with your user name
 
+###### Change `'password1'` with your secure password
 
 ```sh
 FLUSH PRIVILEGES;
@@ -528,6 +581,7 @@ sudo gpg --import phpmyadmin.keyring
 ```sh
 sudo wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc
 ```
+
 ```sh
 sudo gpg --verify phpMyAdmin-latest-all-languages.tar.gz.asc
 ```
@@ -566,9 +620,10 @@ then press **_ctrl+x_**, **_y_** , **_enter_**
 
 ```sh
  sudo chmod 660 /var/www/html/phpMyAdmin/config.inc.php
- ```
- ```sh
- sudo chown -R www-data:www-data /var/www/html/phpMyAdmin
+```
+
+```sh
+sudo chown -R www-data:www-data /var/www/html/phpMyAdmin
 ```
 
 ##### Restart web server
