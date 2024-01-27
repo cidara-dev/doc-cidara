@@ -1,5 +1,5 @@
 ---
-title: Install Web Server di Linux
+title: Install Web Server lokal
 description: Build Web Server Development
 ---
 
@@ -20,15 +20,13 @@ A fully qualified domain name (FQDN) like example.com pointing to the server.
 The Uncomplicated Firewall(UFW) is enabled and running.
 
 Everything is updated.
-
 ```sh
-sudo apt update && sudo apt upgrade
+    $ sudo apt update && sudo apt upgrade
 ```
 
 Few packages that your system needs.
-
 ```sh
-sudo apt install wget curl nano ufw software-properties-common dirmngr apt-transport-https gnupg2 ca-certificates lsb-release debian-archive-keyring unzip -y
+    $ sudo apt install wget curl nano ufw software-properties-common dirmngr apt-transport-https gnupg2 ca-certificates lsb-release debian-archive-keyring unzip -y
 ```
 
 Some of these packages may already be installed on your system.
@@ -38,41 +36,32 @@ Some of these packages may already be installed on your system.
 The first step before installing any packages is to configure the firewall to allow HTTP and HTTPS connections.
 
 Check the status of the firewall.
-
 ```sh
-sudo ufw status
+    $ sudo ufw status
 ```
 
 You should see something like the following.
 
-```
+:::tip[Output]
+```sh
     Status: active
 
     To                         Action      From
     --                         ------      ----
     OpenSSH                    ALLOW       Anywhere
     OpenSSH (v6)               ALLOW       Anywhere (v6)
-```
 
 Allow HTTP and HTTPs ports.
 
-```sh
-sudo ufw allow http
+    $ sudo ufw allow http
+    $ sudo ufw allow https
 ```
-
-```sh
-sudo ufw allow https
-```
+:::
 
 Check the status again to confirm.
 
 ```sh
-sudo ufw status
-```
-
-Output:
-
-```
+    $ sudo ufw status
     Status: active
 
     To Action From
@@ -87,230 +76,89 @@ Output:
     443/tcp (v6)    ALLOW       Anywhere (v6)
 ```
 
-## Step 2 - Install Web Engine
 
-### Install Nginx
+## Step 2 - Install PHP
 
-Debian 12 ships with an older version of Nginx. To install the latest version, you need to download the official Nginx repository.
-
-Import Nginx's signing key.
+Debian 12 ships with PHP 8.2 by default. You can install it by running the following command.
 
 ```sh
-curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \ | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
-```
-
-Add the repository for Nginx's stable version.
-
-```sh
-echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \ http://nginx.org/packages/debian `lsb_release -cs` nginx" \ | sudo tee /etc/apt/sources.list.d/nginx.list
-```
-
-Update the system repositories.
-
-```sh
-sudo apt update
-```
-
-Install Nginx.
-
-```sh
-sudo apt install nginx
-```
-
-Verify the installation. On Debian systems, the following command will only work with sudo.
-
-```sh
-sudo nginx -v
-```
-
-Output:
-
-```
-    nginx version: nginx/1.24.0
-```
-
-Start Nginx.
-
-```sh
-sudo systemctl start nginx
-```
-
-Check the service status.
-
-```sh
-sudo systemctl status nginx
-```
-Output:
-```
-    nginx.service - nginx - high performance web server
-    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
-    Active: active (running) since Thu 2023-06-15 16:33:46 UTC; 1s ago
-    Docs: https://nginx.org/en/docs/
-    Process: 2257 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
-    Main PID: 2258 (nginx)
-    Tasks: 2 (limit: 1108)
-    Memory: 1.8M
-    CPU: 6ms
-    CGroup: /system.slice/nginx.service
-    ??2258 "nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf"
-    ??2259 "nginx: worker process"
-```
-
-### Install Apache
-
-```sh
-sudo apt update
+apt-get install ca-certificates apt-transport-https software-properties-common curl lsb-release -y
 ```
 
 ```sh
-sudo apt install apache2
-```
-
-Check the service status.
-
-```sh
-sudo systemctl status apache2
-```
-
-Output
-
-```
-apache2.service - The Apache HTTP Server
-     Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor prese>
-     Active: active (running) since Thu 2024-01-25 15:37:08 WIB; 5h 16min ago
-       Docs: https://httpd.apache.org/docs/2.4/
-    Process: 920 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUC>
-   Main PID: 1067 (apache2)
-      Tasks: 7 (limit: 16536)
-     Memory: 35.8M
-        CPU: 638ms
-     CGroup: /system.slice/apache2.service
-             ├─1067 /usr/sbin/apache2 -k start
-             ├─1071 /usr/sbin/apache2 -k start
-             ├─1072 /usr/sbin/apache2 -k start
-             ├─1073 /usr/sbin/apache2 -k start
-             ├─1074 /usr/sbin/apache2 -k start
-             ├─1075 /usr/sbin/apache2 -k start
-             └─7902 /usr/sbin/apache2 -k start
-
-Jan 25 15:37:08 cidara-MS-7A38 systemd[1]: Starting The Apache HTTP Server...
-Jan 25 15:37:08 cidara-MS-7A38 apachectl[953]: AH00558: apache2: Could not reli>
-Jan 25 15:37:08 cidara-MS-7A38 systemd[1]: Started The Apache HTTP Server.
-```
-## Step 3 - Install PHP
-
-Debian 12/ Ubuntu 22.04 ships with PHP 8.3 by default. You can install it by running the following command.
-
-```sh
-sudo apt-get install ca-certificates apt-transport-https software-properties-common curl lsb-release -y
+apt update
 ```
 
 ```sh
-sudo apt update
+apt-get -y install lsb-release ca-certificates curl
 ```
 
 ```sh
-sudo apt-get -y install lsb-release ca-certificates curl
+    $ sudo apt install php-fpm php-cli php-mysql php-mbstring php-xml php-gd
 ```
 
+We have installed PHP's MySQL, CLI, GD, Mbstring, and XML extensions. You can install any extra extensions as per your requirements.
+
+To always stay on the latest version of PHP or if you want to install multiple versions of PHP, add Ondrej's PHP repository.Ezoic
+
+#### First, import Sury's repo PHP GPG key.
 ```sh
-sudo apt install php php-fpm php-cli php-mysql php-mbstring php-xml php-gd libapache2-mod-php
+    $ sudo curl -sSLo /usr/share/keyrings/deb.sury.org-php.gpg https://packages.sury.org/php/apt.gpg
 ```
 
-### Install Multi PHP
-
+#### Add Ondrej Sury's PHP repository.
 ```sh
-sudo apt install apt-transport-https lsb-release ca-certificates wget -y
+    $ sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/deb.sury.org-php.gpg] https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 ```
 
+
+#### Update the system repository list.
 ```sh
-wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+    $ sudo apt update
 ```
 
+#### Now, you can install any version of PHP.
+:::note[php7]
 ```sh
-echo "deb https://packages.sury.org/php/ (lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+apt install php7.0-{zip,xml,pdo,mysqli,mysqlnd,mcrypt,mbstring,json,ldap,bcmath,bz2,cgi,ctype,curl,dom,exif,fileinfo,ftp,gd,gettext,imagick,imap,intl} -y
 ```
+:::
 
+:::note[php8]
 ```sh
-sudo apt update
+    $ sudo apt install php8.1-fpm php8.1-cli
 ```
+:::
 
-#### Install PHP 7.4
-
+#### Check the version of PHP installed.Ezoic
 ```sh
-sudo apt install php7.4 -y
-```
-
-#### Install PHP 7.4 Extension
-
-```sh
-sudo apt install php7.4-{common,mysql,xml,xmlrpc,curl,gd,imagick,cli,dev,imap,mbstring,opcache,soap,zip,intl} -y
-```
-
-#### Install PHP 8.3
-
-```sh
-sudo apt install php8.3 -y
-```
-
-#### Install PHP 8.3 Extension
-
-```sh
-sudo apt install php8.3-{common,mysql,xml,xmlrpc,curl,gd,imagick,cli,dev,imap,mbstring,opcache,soap,zip,intl} -y
-```
-
-### Change PHP version to php7.4
-
-```sh
-update-alternatives --set php /usr/bin/php7.4
-```
-
-### Change PHP version to php8.3
-
-```sh
-update-alternatives --set php /usr/bin/php8.3
-```
-
-#### Check the version of PHP installed
-
-check php version
-
-```sh
-php -v
-```
-
-##### Output:
-
-```sh
-    PHP 8.3.2-1+ubuntu22.04.1+deb.sury.org+1 (cli) (built: Jan 20 2024 14:16:40) (NTS)
+    $ php --version
+    PHP 8.2.7 (cli) (built: Jun 9 2023 19:37:27) (NTS)
     Copyright (c) The PHP Group
-    Zend Engine v4.3.2, Copyright (c) Zend Technologies
-    with Zend OPcache v8.3.2-1+ubuntu22.04.1+deb.sury.org+1, Copyright (c), by Zend Technologies
+    Zend Engine v4.2.7, Copyright (c) Zend Technologies
+    with Zend OPcache v8.2.7, Copyright (c), by Zend Technologies
 ```
 
-## Step 4 - Install MariaDB
+## Step 3 - Install MariaDB
 
 Debian 12 does not ship with MySQL by default and they haven't released an official package for it yet. Therefore, we will be using MariaDB for it. MariaDB doesn't have an official package for Debian 12 as well but Debian ships with it. Therefore, install it using the following command.
-
 ```sh
-sudo apt install mariadb-server -y
+    $ sudo apt install mariadb-server
 ```
 
 Check the version of MySQL.
-
 ```sh
-mysql --version
+    $ mysql --version
+    mysql Ver 15.1 Distrib 10.11.3-MariaDB, for debian-linux-gnu (x86_64) using EditLine wrapper
 ```
 
 Run the MariaDB secure install script.
-
 ```sh
-sudo mysql_secure_installation
+    $ sudo mysql_secure_installation
 ```
 
 You will be asked for the root password. Press Enter because we haven't set any password for it.
 :::tip[Output]
-
 ```sh
     NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
     SERVERS IN PRODUCTION USE! PLEASE READ EACH STEP CAREFULLY!
@@ -321,7 +169,7 @@ You will be asked for the root password. Press Enter because we haven't set any 
 
     Enter current password for root (enter for none):
 
-    Next, you will be asked if you want to switch to the Unix socket authentication method. The unix_socket plugin allows you to use your operating system credentials to connect to the MariaDB server. Since you already have a protected root account, enter n to proceed.AdvertisementEzoic
+Next, you will be asked if you want to switch to the Unix socket authentication method. The unix_socket plugin allows you to use your operating system credentials to connect to the MariaDB server. Since you already have a protected root account, enter n to proceed.AdvertisementEzoic
 
     OK, successfully used password, moving on...
 
@@ -332,7 +180,7 @@ You will be asked for the root password. Press Enter because we haven't set any 
 
     Switch to unix_socket authentication [Y/n] n
 
-    Next, you will be asked if you want to change your root password. On Debian 12, the root password is tied closely to automated system maintenance, so it should be left alone. Type n to proceed further.
+Next, you will be asked if you want to change your root password. On Debian 12, the root password is tied closely to automated system maintenance, so it should be left alone. Type n to proceed further.
 
     ... skipping.
 
@@ -340,7 +188,7 @@ You will be asked for the root password. Press Enter because we haven't set any 
 
     Change the root password? [Y/n] n
 
-    Next, you will be asked certain questions to improve MariaDB security. Type Y to remove anonymous users, disallow remote root logins, remove the test database, and reload the privilege tables.
+Next, you will be asked certain questions to improve MariaDB security. Type Y to remove anonymous users, disallow remote root logins, remove the test database, and reload the privilege tables.
 
     ... skipping.
 
@@ -384,51 +232,68 @@ You will be asked for the root password. Press Enter because we haven't set any 
     Thanks for using MariaDB!
 ```
 
-:::
 
 ###### You can enter the MariaDB shell by typing sudo mysql or sudo mariadb on the command line.
 
-## Step 5 - Configure MariaDB
+## Step 4 - Configure MariaDB
 
 Log in to the MariaDB shell.
-
 ```sh
-sudo mysql -u root -p
+    $ sudo mysql
 ```
 
 Create a sample database.
-
 ```sh
-CREATE DATABASE exampledb;
+    MariaDB> CREATE DATABASE exampledb;
 ```
 
-show database
-
+Create an SQL user account.
 ```sh
-show databases;
+    MariaDB> CREATE USER 'exampleuser'@'localhost' IDENTIFIED BY 'YourPassword2!';
+```
+
+Grant all privileges on the database to the user.
+```sh
+    MariaDB> GRANT ALL PRIVILEGES ON exampledb.\* TO 'exampleuser'@'localhost';
+```
+
+Since we are not modifying the root user, you should create another SQL user for performing administrative tasks which employ password authentication. Choose a strong password for this one.
+```sh
+    MariaDB> GRANT ALL ON _._ TO 'navjot'@'localhost' IDENTIFIED BY 'Yourpassword32!' WITH GRANT OPTION;
+```
+
+Flush user privileges.
+```sh
+    MariaDB> FLUSH PRIVILEGES;
+```
+
+Exit the shell.
+```sh
+    MariaDB> exit
+```
+
+Let us log in again to the MySQL shell using the newly created user.
+```sh
+    $ sudo mysql -u exampleuser -p
 ```
 
 Create a test table.
-
 ```sh
-CREATE TABLE exampledb.name_list ( sno INT AUTO_INCREMENT, content VARCHAR(255), PRIMARY KEY(sno) );
+    MariaDB> CREATE TABLE exampledb.name_list ( sno INT AUTO_INCREMENT, content VARCHAR(255), PRIMARY KEY(sno) );
 ```
 
 Insert test data.
-
 ```sh
-INSERT INTO exampledb.name_list (content) VALUES ("Navjot");
+    MariaDB> INSERT INTO exampledb.name_list (content) VALUES ("Navjot");
 ```
 
 Repeat the above command multiple times to add more entries. Run the following command to check the contents of the table.
-
 ```sh
-SELECT \* FROM exampledb.name_list;
+    MariaDB> SELECT \* FROM exampledb.name_list;
 ```
 
 You will receive the following output.
 :::tip[Output]
-
 ```sh
     +-----+---------+
     | sno | content |
@@ -440,61 +305,75 @@ You will receive the following output.
     +-----+---------+
     4 rows in set (0.00 sec)
 ```
-
 :::
 
 Exit the MySQL shell.
-
 ```sh
-exit
+    MariaDB> exit
 ```
 
-### ADD USER MariaDB
+## Step 5 - Install Nginx
 
-Open your Terminal and type:
+Debian 12 ships with an older version of Nginx. To install the latest version, you need to download the official Nginx repository.
 
+Import Nginx's signing key.
 ```sh
-mysql -u root -p
+    $ curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
+    | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
 ```
 
-input your root password (press `ENTER` if you not configure it)
-
-Then
-
+Add the repository for Nginx's stable version.
 ```sh
-CREATE USER 'user1'@localhost IDENTIFIED BY 'password1';
+    $ echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+    http://nginx.org/packages/debian `lsb_release -cs` nginx" \
+    | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
-###### Change `'user1'` on `'user1'@localhost` with your user name
-
-###### Change `'password1'` with your secure password
-
+Update the system repositories.
 ```sh
-GRANT ALL PRIVILEGES ON *.* TO 'user1'@localhost IDENTIFIED BY 'password1';
+    $ sudo apt update
 ```
 
-###### Change `'user1'` on `'user1'@localhost` with your user name
-
-###### Change `'password1'` with your secure password
-
+Install Nginx.
 ```sh
-FLUSH PRIVILEGES;
+    $ sudo apt install nginx
+```
+Verify the installation. On Debian systems, the following command will only work with sudo.
+```sh
+    $ sudo nginx -v
+    nginx version: nginx/1.24.0
 ```
 
+Start Nginx.
 ```sh
-exit
+    $ sudo systemctl start nginx
+```
+
+Check the service status.
+```sh
+    $ sudo systemctl status nginx
+    ? nginx.service - nginx - high performance web server
+    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+    Active: active (running) since Thu 2023-06-15 16:33:46 UTC; 1s ago
+    Docs: https://nginx.org/en/docs/
+    Process: 2257 ExecStart=/usr/sbin/nginx -c /etc/nginx/nginx.conf (code=exited, status=0/SUCCESS)
+    Main PID: 2258 (nginx)
+    Tasks: 2 (limit: 1108)
+    Memory: 1.8M
+    CPU: 6ms
+    CGroup: /system.slice/nginx.service
+    ??2258 "nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf"
+    ??2259 "nginx: worker process"
 ```
 
 ## Step 6 - Configure PHP-FPM
 
 #### Open php.ini for editing.
-
 ```sh
-sudo nano /etc/php/8.2/fpm/php.ini
+    $ sudo nano /etc/php/8.2/fpm/php.ini
 ```
 
 To set file upload sizes, change the values of the upload_max_filesize and post_max_size variables.
-
 ```sh
     upload_max_filesize = 50M
     ...
@@ -502,7 +381,6 @@ To set file upload sizes, change the values of the upload_max_filesize and post_
 ```
 
 Configure PHP's memory limit depending on your server resources and requirements.
-
 ```sh
     memory_limit = 256M
 ```
@@ -510,39 +388,31 @@ Configure PHP's memory limit depending on your server resources and requirements
 ##### Save the file by pressing Ctrl + X and entering Y when prompted.
 
 :::tip[You can also use the following commands to make the edits without needing to open the file]
-
 ```sh
-sudo sed -i 's/post_max_size = 8M/post_max_size = 50M/' /etc/php/8.2/fpm/php.ini
+    $ sudo sed -i 's/post_max_size = 8M/post_max_size = 50M/' /etc/php/8.2/fpm/php.ini
+    $ sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/' /etc/php/8.2/fpm/php.ini
+    $ sudo sed -i 's/memory_limit = 128M/memory_limit = 256M/' /etc/php/8.2/fpm/php.ini
 ```
-```sh
-sudo sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 50M/' /etc/php/8.2/fpm/php.ini
-```
-```sh
-sudo sed -i 's/memory_limit = 128M/memory_limit = 256M/' /etc/php/8.2/fpm/php.ini
-```
-
 :::
 
 #### Open the file /etc/php/8.0/fpm/pool.d/www.conf.
-
 ```sh
-sudo nano /etc/php/8.2/fpm/pool.d/www.conf
+    $ sudo nano /etc/php/8.2/fpm/pool.d/www.conf
 ```
-
 ##### We need to set the Unix user/group of PHP processes to nginx. Find the user=www-data and group=www-data lines in the file and change them to nginx.
-
 :::note
 
+   
     ; Unix user/group of processes
     ; Note: The user is mandatory. If the group is not set, the default user's group
     ; will be used.
     user = nginx
     group = nginx
+    
 
 :::
 
 ##### Also, find the lines listen.owner=www-data and listen.group=www-data in the file and change them to nginx.
-
 ```sh
     listen.owner = nginx
     listen.group = nginx
@@ -551,107 +421,73 @@ sudo nano /etc/php/8.2/fpm/pool.d/www.conf
 ##### Save the file by pressing Ctrl + X and entering Y when prompted.
 
 #### Restart the PHP-fpm process.
-
 ```sh
-sudo systemctl restart php8.2-fpm
+    $ sudo systemctl restart php8.2-fpm
 ```
 
 ## Step 7 - Install phpMyAdmin
 
 ##### Download phpMyAdmin's archive file for the English language. Grab the link for the latest version from the phpMyAdmin Download page.
-
 ```sh
-sudo wget -P Downloads https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz
+    $ wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-english.tar.gz
 ```
-
-##### Download Keyring
-
+##### Create a public directory for the site.
 ```sh
-sudo wget -P Downloads https://files.phpmyadmin.net/phpmyadmin.keyring
-```
-
-##### Mount Folder Downloads
-
-```sh
-cd Downloads
-```
-
-##### Import keyring
-
-```sh
-sudo gpg --import phpmyadmin.keyring
-```
-
-```sh
-sudo wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz.asc
-```
-
-```sh
-sudo gpg --verify phpMyAdmin-latest-all-languages.tar.gz.asc
-```
-
-##### Create a directory for the site.
-
-```sh
-sudo mkdir /var/www/html/phpMyAdmin
+    $ sudo mkdir /var/www/html/example.com -p
 ```
 
 ##### Extract the archive to the public directory.
-
 ```sh
-sudo tar xvf phpMyAdmin-latest-all-languages.tar.gz --strip-components=1 -C /var/www/html/phpMyAdmin
+    $ sudo tar -xzf phpMyAdmin-5.2.1-english.tar.gz -C /var/www/html/example.com
 ```
 
-##### Copy config file
-
+##### Switch to the public directory.
 ```sh
-sudo cp /var/www/html/phpMyAdmin/config.sample.inc.php /var/www/html/phpMyAdmin/config.inc.php
+    $ cd /var/www/html/example.com
 ```
 
-##### Edit config.ini.php
-
+##### Rename the extracted directory to something obscure to improve security.
 ```sh
-sudo nano /var/www/html/phpMyAdmin/config.inc.php
+    $ sudo mv phpMyAdmin-5.2.1-english sm175
 ```
 
-find
+## Step 8 - Configure phpMyAdmin
 
-**_cfg['blowfish_secret'] = '';_** ---> change inside **''** with youre secure password,
-
-then press **_ctrl+x_**, **_y_** , **_enter_**
-
-##### Change Permission
-
+##### Copy the sample configuration file.
 ```sh
-sudo chmod 660 /var/www/html/phpMyAdmin/config.inc.php
+    $ sudo cp sm175/config.sample.inc.php sm175/config.inc.php
 ```
 
+##### Open the configuration file for editing.
 ```sh
-sudo chown -R www-data:www-data /var/www/html/phpMyAdmin
+    $ sudo nano sm175/config.inc.php
 ```
 
-##### Restart web server
+##### Find the line $cfg['blowfish_secret'] = ''; and enter a 32-character random string for cookie-based authentication.
 
-Apache:
+You can use phpSolved's online blowfish generator or do it via the command line.
 
+Copy the value and paste it as shown.
 ```sh
-sudo systemctl restart apache2
+    $cfg['blowfish_secret'] = 'Tc/HfLPBOAPxJ-rhQP}HJoZEK69c3j:m';
+```
+##### Save the file by pressing Ctrl + X and entering Y when prompted.
+
+##### Change the ownership of the site and phpMyAdmin to the Nginx server.
+```sh
+    $ sudo chown -R nginx:nginx /var/www/html/example.com
 ```
 
-Nginx:
-
+##### Delete the phpMyAdmin setup directory.
 ```sh
-sudo systemctl restart nginx
+    $ sudo rm -rf /var/www/html/example.com/sm175/setup
 ```
-
-##### Then you can enter in your web Browser like Chrome **_http://localhost/phpMyAdmin_**
 
 ## Step 9 - Configure Opcache
 
 Opcache is PHP's caching system. It works by saving precompiled script bytecode in the memory, so every time a user visits a page, it loads faster. Opcache is installed by default. To verify, check the PHP version.
-
 ```sh
-     php --version
+    $ php --version
     PHP 8.2.7 (cli) (built: Jun 9 2023 19:37:27) (NTS)
     Copyright (c) The PHP Group
     Zend Engine v4.2.7, Copyright (c) Zend Technologies
@@ -659,19 +495,16 @@ Opcache is PHP's caching system. It works by saving precompiled script bytecode 
 ```
 
 This tells us that Opcache is installed and available. In case, it doesn't show up here, you can install it manually by running the following command.
-
 ```sh
-sudo apt install php-opcache
+    $ sudo apt install php-opcache
 ```
 
 To change Opcache settings, open the file /etc/php/8.2/fpm/conf.d/10-opcache.ini for editing.
-
 ```sh
-sudo nano /etc/php/8.2/fpm/conf.d/10-opcache.ini
+    $ sudo nano /etc/php/8.2/fpm/conf.d/10-opcache.ini
 ```
 
 ###### The following settings should get you started with using Opcache and are generally recommended for good performance. You can enable it by adding the following lines at the bottom.
-
 ```sh
     opcache.enable_cli=1
     opcache.memory_consumption=128
@@ -679,13 +512,11 @@ sudo nano /etc/php/8.2/fpm/conf.d/10-opcache.ini
     opcache.max_accelerated_files=4000
     opcache.revalidate_freq=60
 ```
-
 ###### Save the file by pressing Ctrl + X and entering Y when prompted.
 
 ###### Restart PHP-FPM.
-
 ```sh
-sudo systemctl restart php8.2-fpm
+    $ sudo systemctl restart php8.2-fpm
 ```
 
 ## Step 10 - Install Certbot for SSL
@@ -695,68 +526,53 @@ We need to install Certbot to generate free SSL certificates offered by Let's En
 You can either install Certbot using Debian's repository or grab the latest version using the Snapd tool. We will be using the Snapd version.
 
 Debian 12 comes doesn't come with Snapd installed. Install Snapd package.
-
 ```sh
-sudo apt install snapd
+    $ sudo apt install snapd
 ```
-
 Run the following commands to ensure that your version of Snapd is up to date.
-
 ```sh
-sudo snap install core
-sudo snap refresh core
+    $ sudo snap install core
+    $ sudo snap refresh core
 ```
 
 ###### Install Certbot.
-
 ```sh
-sudo snap install --classic certbot
+    $ sudo snap install --classic certbot
 ```
-
 Use the following command to ensure that the Certbot command can be run by creating a symbolic link to the /usr/bin directory.
-
 ```sh
-sudo ln -s /snap/bin/certbot /usr/bin/certbot
+    $ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
-
 Verify if Certbot is functioning properly.
-
 ```sh
-certbot --version
-```
-Output:
-```
+    $ certbot --version
     certbot 2.6.0
 ```
-
 ## Step 11 - Test a demo site
 
 Create the site
 
 Create and open a test page for editing.
-
 ```sh
-sudo nano /var/www/html/example.com/index.php
+    $ sudo nano /var/www/html/example.com/index.php
 ```
-
 Paste the following code in it.
-
 ```sh
     <?php
-    user = "exampleuser";
-    password = "YourPassword2!";
-    database = "exampledb";
-    table = "name_list";
+    $user = "exampleuser";
+    $password = "YourPassword2!";
+    $database = "exampledb";
+    $table = "name_list";
 
     try {
-        db = new PDO("mysql:host=localhost;dbname=database", user, password);
+        $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
         echo "<h2>Members List</h2><ol>";
-        foreach(db->query("SELECT content FROM table") as row) {
-            echo "<li>" . row['content'] . "</li>";
+        foreach($db->query("SELECT content FROM $table") as $row) {
+            echo "<li>" . $row['content'] . "</li>";
         }
         echo "</ol>";
-    }   catch (PDOException e) {
-        print "Error!: " . e->getMessage() . "<br/>";
+    }   catch (PDOException $e) {
+        print "Error!: " . $e->getMessage() . "<br/>";
         die();
     }
 ```
@@ -766,27 +582,20 @@ Paste the following code in it.
 ###### Create an SSL Certificate
 
 Run the following command to generate an SSL Certificate.
-
 ```sh
-sudo certbot certonly --nginx --agree-tos --no-eff-email --staple-ocsp --preferred-challenges http -m name@example.com -d example.com
+    $ sudo certbot certonly --nginx --agree-tos --no-eff-email --staple-ocsp --preferred-challenges http -m name@example.com -d example.com
 ```
-
 The above command will download a certificate to the /etc/letsencrypt/live/example.com directory on your server.
 
 Generate a Diffie-Hellman group certificate.
-
 ```sh
-sudo openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
+    $ sudo openssl dhparam -dsaparam -out /etc/ssl/certs/dhparam.pem 4096
 ```
-
 Check the Certbot renewal scheduler service.
-
 ```sh
-sudo systemctl list-timers
+    $ sudo systemctl list-timers
 ```
-
 You will find snap.certbot.renew.service as one of the services scheduled to run.
-
 ```sh
     NEXT                        LEFT          LAST                        PASSED        UNIT                      ACTIVATES
     .....
@@ -794,24 +603,18 @@ You will find snap.certbot.renew.service as one of the services scheduled to run
     Sun 2023-02-26 06:43:20 UTC 9h left       Sat 2023-02-25 10:49:23 UTC 10h ago       apt-daily-upgrade.timer   apt-daily-upgrade.service
     Sun 2023-02-26 09:00:06 UTC 11h left      Sat 2023-02-25 20:58:06 UTC 5min ago      apt-daily.timer           apt-daily.service
 ```
-
 Do a dry run of the process to check whether the SSL renewal is working fine.
-
 ```sh
-sudo certbot renew --dry-run
+    $ sudo certbot renew --dry-run
 ```
-
 If you see no errors, you are all set. Your certificate will renew automatically.
 Configure Nginx
 
 ###### Create and open the file /etc/nginx/conf.d/example.conf for editing.
-
 ```sh
-sudo nano /etc/nginx/conf.d/example.conf
+    $ sudo nano /etc/nginx/conf.d/example.conf
 ```
-
 :::note[Paste the following code in it.]
-
 ```sh
 server {
 listen 443 ssl http2;
@@ -842,15 +645,15 @@ server_name example.com;
     index index.php index.html;
 
     location / {
-        try_files uri uri/ /index.php?query_string;
+        try_files $uri $uri/ /index.php?$query_string;
     }
 
     # Pass PHP Scripts To FastCGI Server
-    location ~ \.php {
-        fastcgi_split_path_info ^(.+\.php)(/.+);
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass unix:/run/php/php8.2-fpm.sock; #depends on PHP versions
         fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME document_rootfastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
 
@@ -860,46 +663,35 @@ server_name example.com;
 
 }
 ```
-
 :::
 
 ## enforce HTTPS
-
 ```sh
     server {
     listen 80;
     listen [::]:80;
     server_name example.com;
-    return 301 https://hostrequest_uri;
+    return 301 https://$host$request_uri;
     }
 ```
-
 ###### Save the file by pressing Ctrl + X and entering Y when prompted.
 
 Open the file /etc/nginx/nginx.conf for editing.
-
 ```sh
-sudo nano /etc/nginx/nginx.conf
+    $ sudo nano /etc/nginx/nginx.conf
 ```
-
 Add the following line before the line include /etc/nginx/conf.d/\*.conf;.
-
-```
+```sh
     server_names_hash_bucket_size 64;
 ```
-
 ###### Save the file by pressing Ctrl + X and entering Y when prompted.
 
 Verify your Nginx configuration.
-
 ```sh
-sudo nginx -t
+    $ sudo nginx -t
 ```
-
 If you see no errors, it means you are good to go. Start the Nginx server.
-
 ```sh
-sudo systemctl start nginx
+    $ sudo systemctl start nginx
 ```
-
 Load your website by visiting https://example.com in your browser and you will see the following page.

@@ -10,20 +10,20 @@ NVM merupakan singkatan dari Node Version Manager. NVM adalah sebuah program yan
 
 ## Instalasi NVM
 
+    ### menggunakan curl
+
 ```sh
-    # menggunakan curl
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 ```
 
 next:
 
-<Tabs>
-
 ```sh
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
-</Tabs>
+```sh 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+```
 
 
 
@@ -37,14 +37,14 @@ nvm --version
 
 ###### Output
 
-```sh
+```
 nvm --version
 0.39.5
 ```
 
 ## Cara Pakai
 
-#### Melihat list Nodejs yang ada di server
+### Melihat list Nodejs yang ada di server
 
 ```sh
 nvm ls-remote
@@ -52,7 +52,7 @@ nvm ls-remote
 
 ###### Output
 
-```sh
+```
     v18.12.0   (LTS: Hydrogen)
     v18.12.1   (LTS: Hydrogen)
     v18.13.0   (LTS: Hydrogen)
@@ -67,7 +67,7 @@ nvm ls-remote
 ->  v18.18.0   (Latest LTS: Hydrogen)
 ```
 
-#### Update Node ke versi tertentu
+### Update Node ke versi tertentu
 
 ```sh
     nvm install 21
@@ -82,14 +82,14 @@ nvm ls-remote
 ```
 
 
-#### Menggunakan versi Node yg sesuai
+### Menggunakan versi Node yg sesuai
 
 ```sh
 nvm use 21
     Now using node v21.5.0 (npm v10.2.4)
 ```
 
-#### Menjalankan Aplikasi Node dengan Versi Tertentu
+### Menjalankan Aplikasi Node dengan Versi Tertentu
 
 ```sh
 nvm run v21.5.0  app.js
@@ -99,7 +99,7 @@ nvm run v21.5.0  app.js
 - **app.js** adalah program Nodejs.
 
 
-#### Menghapus Versi Nodejs
+### Menghapus Versi Nodejs
 ```sh
 nvm uninstall v11.10.1
 ```

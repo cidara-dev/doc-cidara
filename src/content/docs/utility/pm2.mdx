@@ -9,7 +9,7 @@ import { Tabs, TabItem } from "@astrojs/starlight/components";
 import pm2 from '/src/assets/images/pm2.png';
 
 
-# Installation
+## Installation
 
 <Tabs>
 <TabItem label="npm">
@@ -28,9 +28,9 @@ import pm2 from '/src/assets/images/pm2.png';
 </TabItem>
 </Tabs>
 
-##### To install Node.js and NPM you can use [NVM](/utility/nvm/)
+### To install Node.js and NPM you can use [NVM](/utility/nvm/)
 
-#### Start an app
+## Start an app
 
 The simplest way to start, daemonize and monitor 
 your application is by using this command line:
@@ -39,11 +39,15 @@ your application is by using this command line:
  pm2 start app.js
 ```
 
-###### Or start any other application easily:
+### Or start any other application easily
 
 ```sh
  pm2 start bashscript.sh
+ ```
+ ```sh
  pm2 start python-app.py --watch
+ ```
+ ```sh
  pm2 start binary-file -- --port 1520
 ```
 
@@ -84,14 +88,31 @@ your application is by using this command line:
 ```
 :::
 
-#### Managing processes
+## Managing processes
 
 Managing application state is simple here are the commands:
 
+### restart
+
 ```sh
  pm2 restart app_name
+ ```
+
+ ### reload
+
+ ```sh
  pm2 reload app_name
+ ```
+
+ ### stop
+
+ ```sh
  pm2 stop app_name
+ ```
+
+ ### delete
+
+ ```sh
  pm2 delete app_name
 ```
 
@@ -100,16 +121,16 @@ Instead of ***app_name*** you can pass:
 - ***all*** to act on all processes
 - ***id*** to act on a specific process id
 
-#### Check status, logs, metrics
+## Check status, logs, metrics
 Now that you have started this application, you can check its status, logs, metrics and even get the online dashboard with **pm2.io**.
 
-#### List managed applications
+### List managed applications
 List the status of all application managed by PM2:
 
 ```sh
  pm2 [list|ls|status]
 ```
-#### Terminal Based Dashboard
+### Terminal Based Dashboard
 
 Here is a realtime dashboard that fits directly into your terminal:
 

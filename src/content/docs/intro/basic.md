@@ -1,0 +1,266 @@
+---
+title: Perintah Dasar Linux
+description: Perintah Dasar Linux
+---
+
+## sudo command
+
+Merupakan singkatan dari superuser do, sudo adalah salah satu perintah dasar Linux paling populer untuk melakukan tugas yang memerlukan izin administratif atau root.
+
+Saat menggunakan sudo, sistem akan meminta user untuk mengautentikasi dirinya sendiri dengan password. Kemudian, sistem Linux akan mencatat timestamp sebagai tracker. Secara default, setiap user root bisa menjalankan perintah sudo selama 15 menit/sesi.
+
+Kalau Anda mencoba menjalankan sudo di command line tanpa autentikasi, sistem akan mencatat aktivitas tersebut sebagai peristiwa keamanan.
+
+Berikut syntax umumnya:
+
+```sh
+sudo (command)
+```
+
+:::tip[Anda juga bisa menambahkan opsi, seperti:]
+```sh
+-k atau –reset-timestamp membatalkan file timestamp.
+-g atau –group=group menjalankan command sebagai nama atau ID grup tertentu.
+-h atau –host=host menjalankan command di host.
+```
+:::
+
+## apt-get command
+
+apt-get adalah tool command line untuk menangani library APT (Advanced Package Tool) di Linux. Anda bisa mengambil informasi dan membuat bundle dari sumber terautentikasi untuk mengelola, mengupdate, menghapus, dan menginstal software serta dependensinya
+
+Untuk menjalankan apt-get, Anda harus menggunakan hak akses sudo atau root.
+
+Berikut syntax utamanya:
+
+```sh
+apt-get [opsi] (command)
+```
+
+:::tip[Berikut perintah paling umum yang bisa Anda tambahkan ke apt-get:]
+```sh
+    update      menyinkronkan file package dari sumbernya.
+    upgrade     menginstal versi terbaru semua package yang terinstal.
+    check       mengupdate cache package dan mengecek dependensi yang rusak.
+    install     memasang aplikasi dari sumber package
+```
+:::
+
+## pwd command
+
+Gunakan perintah dasar Linux pwd untuk menemukan path direktori kerja Anda saat ini. Cukup dengan memasukkan pwd, path saat ini akan ditampilkan penuh, yaitu path semua direktori yang diawali dengan garis miring (/). Misalnya, /home/username.
+
+Perintah pwd menggunakan syntax berikut:
+
+```sh
+pwd [opsi]
+```
+
+:::tip[Ada dua opsi yang bisa digunakan:]
+```sh
+    -L      atau –logical menampilkan konten variabel environment, termasuk link simbolik.
+    -P      atau –physical menampilkan path aktual direktori saat ini.
+```
+:::
+
+## cd command
+
+Untuk menjelajahi file dan direktori Linux, gunakan perintah cd. Perintah Linux ini memerlukan path penuh atau nama direktori, tergantung pada direktori kerja Anda saat ini.
+
+Menjalankan perintah ini tanpa opsi akan mengarahkan Anda ke folder utama. Ingat, hanya user yang punya hak istimewa sudo yang bisa menjalankannya.
+
+Misalnya saat ini Anda sedang berada di /home/username/Documents dan ingin membuka Photos, subdirektori dari Documents. Untuk melakukannya, Anda hanya perlu mengetikkan command berikut:
+
+```sh
+cd Photos
+```
+
+Contoh lainnya, ketika Anda ingin beralih ke direktori baru, misalnya /home/username/Movies, Anda perlu mengetikkan cd diikuti path absolut direktori tersebut:
+
+```sh
+cd /home/username/Movies
+```
+
+:::tip[Berikut beberapa shortcut untuk memudahkan navigasi:]
+```sh
+    cd ~    [username] membuka direktori utama user lain.
+    cd ..   berpindah satu direktori ke atas.
+    cd -    berpindah ke direktori sebelumnya.
+```
+:::
+
+## Is command
+
+Is merupakan perintah dasar Linux yang digunakan untuk melihat file dan direktori pada sistem. Menjalankannya tanpa flag atau parameter akan menampilkan konten direktori kerja saat ini.
+
+Untuk melihat isi direktori lain, ketik Is diikuti path direktori yang diinginkan. Contohnya, untuk melihat file dalam folder Documents, ketikkan:
+
+```sh
+ls /home/username/Documents
+```
+
+:::tip[Berikut beberapa opsi yang bisa digunakan dengan perintah dasar Linux Is:]
+```sh
+    Is -R       akan mencantumkan semua file yang ada di subdirektori.
+    Is -a       akan menampilkan file yang tersembunyi bersama file yang terlihat.
+    ls -lh      menampilkan ukuran file dalam format yang mudah dibaca, seperti MB, GB, dan TB.
+```
+:::
+
+## cat command
+
+cat (akronim dari concatenate) adalah salah satu perintah dasar sistem operasi Linux yang paling sering digunakan. Perintah ini berfungsi untuk mencantumkan, menggabungkan, dan menulis konten atau isi file dalam output standar. Untuk menjalankan command ini, ketik cat diikuti nama dan ekstensi file. Sebagai contoh:
+
+```sh
+cat namafile.txt.
+```
+
+:::TIP[Berikut beberapa cara untuk menggunakan cat command:]
+```sh
+    cat >       namafile.txt membuat file baru.
+    cat         namafile.txt namafile2.txt > namafile3.txt menggabungkan namafile1.txt dan namafile2.txt lalu menyimpan hasilnya di namafile3.txt.
+    tac         filename.txt menampilkan konten dalam urutan terbalik.
+```
+:::
+
+## cp command
+
+Gunakan perintah dasar Linux cp untuk menyalin file atau direktori beserta isinya. Kami akan memberikan contohnya.
+
+Untuk menyalin satu file dari direktori saat ini ke direktori lain, masukkan cp diikuti dengan nama file dan direktori tujuan. Misalnya:
+
+```sh
+cp filename.txt /home/username/Documents
+```
+
+Untuk menyalin file ke sebuah direktori, masukkan nama file diikuti dengan direktori tujuannya:
+
+```sh
+cp namafile1.txt namafile2.txt namafile3.txt /home/username/Documents
+```
+
+Untuk menyalin konten file ke file baru di direktori yang sama, masukkan cp diikuti dengan file sumber dan file tujuan:
+
+```sh
+cp namafile1.txt namafile2.txt
+```
+
+Untuk menyalin seluruh direktori, berikan flag -R sebelum mengetik direktori sumber, diikuti oleh direktori tujuan:
+
+```sh
+cp -R /home/username/Documents /home/username/Documents_backup
+```
+
+## mkdir command
+
+Gunakan perintah dasar Linux mkdir untuk membuat satu atau beberapa direktori baru sekaligus serta mengatur izinnya masing-masing. User yang menjalankan command ini harus memiliki hak istimewa untuk membuat folder baru di direktori utama, atau akan muncul error izin ditolak.
+
+Berikut syntax dasarnya:
+
+```sh
+mkdir [opsi] nama_direktori
+```
+
+Misalnya, Anda ingin membuat direktori bernama Music:
+
+```sh
+mkdir Music
+```
+
+:::tip[Perintah mkdir bisa digunakan dengan beberapa opsi, seperti:]
+```sh
+    -p      atau –parents membuat direktori di antara dua folder yang sudah ada. Misalnya, mkdir -p Music/2020/Songs akan membuat direktori baru bernama “2020”.
+    -m      mengatur izin file. Misalnya, untuk membuat direktori dengan izin baca, tulis, dan eksekusi penuh bagi semua user, ketikkan mkdir -m777 nama_direktori.
+    -v      menampilkan pesan untuk setiap direktori yang dibuat.
+```
+:::
+
+## rmdir command
+
+Perintah rmdir adalah perintah untuk menghapus direktori yang tidak ada isinya. Perlu diingat bahwa user yang menjalankan perintah ini harus memiliki hak istimewa sudo di direktori induk.
+
+Misalnya, Anda ingin menghapus subdirektori kosong bernama personal1 dan folder utamanya adalah mydir:
+
+```sh
+rmdir -p mydir/personal1
+```
+
+## rm command
+
+rm adalah perintah dasar Linux yang berfungsi untuk menghapus file di dalam suatu direktori. Pastikan user yang menjalankan perintah ini memiliki izin tulis.
+
+Anda harus mengingat lokasi direktori karena command ini akan menghapus file dan Anda tidak bisa membatalkannya.
+
+Ini syntax umumnya:
+
+```sh
+rm filename
+```
+
+Untuk menghapus beberapa file, masukkan perintah berikut:
+
+```sh
+rm namafile1 namafile2 namafile3
+```
+
+:::tip[Berikut beberapa opsi yang yang bisa Anda tambahkan:]
+```sh
+    -i      meminta konfirmasi sistem sebelum menghapus file.
+    -f      memungkinkan sistem menghapus file tanpa konfirmasi.
+    -r      menghapus file dan direktori secara rekursif.
+```
+:::
+
+## grep command
+
+Perintah dasar Linux lain yang sangat berguna untuk menyelesaikan task harian adalah grep atau ‘global regular expression print’. Command ini memungkinkan Anda mencari sebuah kata melalui pencarian di seluruh teks dalam file tertentu.
+
+Setelah grep command menemukan kecocokan, semua baris yang memuat pola tertentu akan ditampilkan. Command ini membantu proses filtering dalam file log yang berisi banyak entri.
+
+Misalnya, Anda ingin mencari kata biru dalam file notepad.txt:
+
+```sh
+grep blue notepad.txt
+```
+
+Output yang diberikan perintah ini akan menampilkan baris yang memuat kata biru.
+
+## chmod command
+
+Command chmod adalah perintah dasar Linux lainnya yang digunakan untuk mengubah izin baca, tulis, dan eksekusi direktori. Di Linux, setiap file dikaitkan dengan tiga kelas user, yaitu pemilik (owner), anggota grup (group member), dan lainnya (others).
+
+Berikut syntax dasarnya:
+
+```sh
+chmod [opsi] [izin] [nama_file]
+```
+
+Contohnya, pemilik saat ini adalah satu-satunya user yang memiliki izin penuh untuk mengubah note.txt. Agar anggota grup dan orang lain bisa turut membaca, menulis, dan mengeksekusi file, ubah izin ke jenis izin -rwxrwxrwx, yang nilai numeriknya adalah 777:
+
+```sh
+chmod 777 note.txt
+```
+
+:::tip[Perintah ini mendukung banyak opsi, termasuk:]
+```sh
+    -c      atau –changes menampilkan informasi apabila ada perubahan yang dilakukan.
+    -f      atau –silent menonaktifkan pesan error.
+    -v      atau –verbose menampilkan diagnostik untuk setiap file yang diproses.
+```
+:::
+
+## chown command
+
+Sebagai perintah dasar pada Linux, chown memungkinkan Anda mengubah atau mentransfer kepemilikan file, direktori, atau link simbolik ke username tertentu.
+
+Format dasarnya seperti ini:
+
+```sh
+chown [opsi] owner[:group] file(s)
+```
+
+Contohnya, Anda ingin menjadikan linuxuser2 sebagai pemilik namafile.txt:
+
+```sh
+chown linuxuser2 namafile.txt
+```
