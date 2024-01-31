@@ -156,3 +156,99 @@ wget https://raw.githubusercontent.com/sdldev/server/main/ssh/sshd_config1 && su
 ```
 
 ###### Download filenya [disini](https://raw.githubusercontent.com/sdldev/server/main/ssh/sshd_config)
+
+## Upload/Download File dari Web Server via SSH MelaluiTerminal Linux
+
+Untuk dapat melakukanya,Hal terpenting adalah kita mengetahui *ip_address* dan *password* dari web server yg akan kita eksekusi
+
+sebagai contoh disini,*ip_address* web server adalah ***192.168.200.253***,nama host PC Lokal adalah ***cidara@cidara-dev*** dan nama host server adalah ***nanda@selaras***
+
+### menggunakan metode *scp*
+
+#### Upload File dari Local PC ke Web Server
+
+Buka Terminal dan ketikkan perintah:
+
+```sh
+scp namafile username@ip_address:/home/username
+```
+
+sebagai contoh disini,kita akan mengupload file *contoh.txt* yg ada di direktori *Documents* ke web server
+
+:::tip[Output]
+```sh
+cidara@cidara-dev:~$ cd Documents
+cidara@cidara-dev:~/Documents$ ls
+    contoh.txt
+cidara@cidara-dev:~/Documents$ scp contoh.txt nanda@192.168.200.253:/home/nanda
+nanda@192.168.200.253's password:
+contoh.txt                                    100%    0     0.0KB/s   00:00
+cidara@cidara-dev:~/Documents$ ssh nanda@192.168.200.253
+nanda@192.168.200.253's password:
+Welcome to Ubuntu 23.04 (GNU/Linux 6.2.0-39-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+  System information as of Wed Jan 31 02:03:26 AM UTC 2024
+
+  System load:  0.0                Temperature:             43.0 C
+  Usage of /:   14.4% of 53.73GB   Processes:               158
+  Memory usage: 6%                 Users logged in:         0
+  Swap usage:   0%                 IPv4 address for enp1s0: 192.168.200.253
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+0 updates can be applied immediately.
+
+
+Last login: Tue Jan 30 04:26:53 2024 from 192.168.200.1
+nanda@selaras:~$ ls
+Downloads  cloudflared.deb  contoh.txt
+
+```
+:::
+
+#### Download file dari server ke local PC
+
+dapat dilakukan dengan menggunakan perintah:
+
+```sh 
+scp username@ip_address:/home/username/namafile .
+```
+sebagai contoh disini,kita akan mendownload file contoh.txt yg ada di direktori home web server ke local PC
+
+
+:::tip[Output]
+```sh
+cidara@cidara-dev:~$ cd Documents
+cidara@cidara-dev:~/Documents$ ls -lh
+total 4.0K
+-rw-r--r--  1 cidara cidara    0 Feb 27 12:30  note.txt
+cidara@cidara-dev:~$ scp nanda@192.168.200.253:/home/nanda/contoh.txt .
+nanda@192.168.200.253's password:
+contoh.txt                                    100%    0     0.0KB/s   00:00
+cidara@cidara-dev:~$ ls -lh
+total 15K
+-rw-r--r--  1 cidara cidara    0 Jan 27 18:30  contoh.txt
+-rw-r--r--  1 cidara cidara    0 Feb 27 12:30  note.txt
+cidara@cidara-dev:~$
+```
+:::
+
+#### Anda juga dapat mengupload direktori ke web server
+
+gunakan perintah:
+
+```sh
+scp -r sumber_dir username@ip_address:/home/username/tujuan_dir
+```
+
+
+
+
+
